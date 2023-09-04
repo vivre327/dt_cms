@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#fff;stroke-linecap:square;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="radio_over" transform="translate(-571 -407)">
+        <g id="타원_48" fill="#fff" stroke="#91224d" transform="translate(571 407)">
+            <circle cx="12" cy="12" r="12" stroke="none"/>
+            <circle cx="12" cy="12" r="11.5" fill="none"/>
+        </g>
+        <g id="그룹_6600" transform="translate(578.071 415.92)">
+            <path id="선_91" d="M0 0L3.697 3.697" class="cls-2" transform="translate(0 2.464)"/>
+            <path id="선_92" d="M0 6.161L6.161 0" class="cls-2" transform="translate(3.696)"/>
+        </g>
+    </g>
+</svg>

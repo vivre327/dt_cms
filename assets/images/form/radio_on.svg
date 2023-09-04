@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="radio_on" transform="translate(-706 -2393)">
+    <g id="타원_104" data-name="타원 104" transform="translate(706 2393)" fill="#fff" stroke="#f8485e" stroke-width="1">
+      <circle cx="10" cy="10" r="10" stroke="none"/>
+      <circle cx="10" cy="10" r="9.5" fill="none"/>
+    </g>
+    <circle id="타원_105" data-name="타원 105" cx="6" cy="6" r="6" transform="translate(710 2397)" fill="#f8485e"/>
+  </g>
+</svg>

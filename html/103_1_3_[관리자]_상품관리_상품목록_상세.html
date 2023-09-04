@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>상품 상세<small>Game Infomation Details</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="tbl-form-title">
+            <h3>상품 기본 정보</h3>
+          </div>
+          <div class="tbl-type--form mr-t1">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>카테고리</label>
+                  </th>
+                  <td>
+                    <div>
+                      의류
+                    </div>
+                  </td>
+                  <th>
+                    <label>상품코드</label>
+                  </th>
+                  <td>
+                    <div>
+                      005712
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>상품명</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      TYPE01 폴로셔츠
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>판매 정보</h3>
+          </div>
+          <div class="tbl-type--form mr-t1">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+                <col style="width:320px">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>판매가격 (정가)</label>
+                  </th>
+                  <td>
+                    <div>
+                      139,000원
+                    </div>
+                  </td>
+                  <th>
+                    <label>할인가격</label>
+                  </th>
+                  <td>
+                    <div>
+                      0
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>최대 구매수량</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      1000
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>판매상태</label>
+                  </th>
+                  <td>
+                    <div>
+                      판매 중
+                    </div>
+                  </td>
+                  <th>
+                    <label>판매기간</label>
+                  </th>
+                  <td>
+                    <div>
+                      설정 안함
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>수령방법</label>
+                  </th>
+                  <td>
+                    <div>
+                      택배배송
+                    </div>
+                  </td>
+                  <th>
+                    <label>출고 소요일</label>
+                  </th>
+                  <td>
+                    <div>
+                      1일 이내
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>옵션</th>
+                  <td colspan="3">
+                    <div>
+                      <table id="addOption" class="add-option">
+                        <caption>옵션 설정</caption>
+                        <thead>
+                          <tr>
+                            <th>옵션명</th>
+                            <th>옵션 값</th>
+                            <th>추가금액</th>
+                          </tr>
+                        </thead>
+                        <tbody id="table_body">
+                          <tr>
+                            <td>
+                              사이즈
+                            </td>
+                            <td>
+                              XL
+                            </td>
+                            <td>
+                              0
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>상품 이미지</label>
+                  </th>
+                  <td colspan="3">
+                    <ul class="file-upload-list">
+                      <li>
+                        <div class="file-upload-wrap">
+                          <div class="file-preview-position">
+                            <div class="file-preview-item" id="fileThumbnail" style="max-width: 200px;">
+                              <figure class="file-preview-figure">
+                                <img src="../assets/images/form/no-image.png">
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="file-upload-wrap">
+                          <div class="file-preview-position">
+                            <div class="file-preview-item" style="max-width: 200px;">
+                              <figure class="file-preview-figure">
+                                <img src="../assets/images/form/no-image.png">
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="file-upload-wrap">
+                          <div class="file-preview-position">
+                            <div class="file-preview-item" style="max-width: 200px;">
+                              <figure class="file-preview-figure">
+                                <img src="../assets/images/form/no-image.png">
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="file-upload-wrap">
+                          <div class="file-preview-position">
+                            <div class="file-preview-item" style="max-width: 200px;">
+                              <figure class="file-preview-figure">
+                                <img src="../assets/images/form/no-image.png">
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="file-upload-wrap">
+                          <div class="file-preview-position">
+                            <div class="file-preview-item" style="max-width: 200px;">
+                              <figure class="file-preview-figure">
+                                <img src="../assets/images/form/no-image.png">
+                              </figure>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th>상품 상세정보</th>
+                  <td colspan="3"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-bottom-btns">
+            <button class="btn--st btn-base">목록</button>
+            <button class="btn--st btn-major">수정</button>
+            <button class="btn--st btn-major-outline">삭제</button>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+
+</html>

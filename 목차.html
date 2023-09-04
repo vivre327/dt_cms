@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>목차</title>
+  <link rel="stylesheet" href="assets/css/style-ui.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+		$(function(){
+			$('.go').each(function () {
+				var link_name=$(this).html().trim(); 
+				$(this).replaceWith('<span class="go"><a href="./html/'+link_name+'.html" target="_blank">' + link_name + '</span>');
+			})
+		})
+  </script>
+</head>
+<body>
+	  <h1><b class="fw-700">GameBox</b> : <span>게임 개발사 지원관리 사이트</span> <i>( Update : 2023-09-04 )</i></h1>
+    <div class="grid-container">
+    	<ul>
+				<li><h3>공통</h3></li>
+				<li class=""><span class="go">100_1_1_로그인</span></li>
+				<li class=""><span class="go">100_1_2_로그인_[팝업]</span></li>
+				<li class="edit"><span class="go">101_1_1_회원가입_약관동의</span></li>
+				<li class=""><span class="go">101_2_1_회원가입_회원정보입력</span></li>
+				<li class=""><span class="go">101_2_2_회원가입_주소입력_[팝업]</span></li>
+				<li class=""><span class="go">101_3_1_회원가입_신청완료</span></li>
+				<li class="new"><span class="go">102_1_1_약관및정책</span></li>
+				<li><a hrer="#"></a></li>
+				<li class="edit"><span class="go">_레이아웃_메뉴</span></li>
+				<li class=""><span class="go">_폼_게시판</span></li>
+				<li class=""><span class="go">_팝업</span></li>
+				<li class=""><span class="go">_달력</span></li> 
+				<li class="ui"><span><b>/images/</b></span></li>
+				<li class="ui"><span><b>/js/style-ui.js</b></span></li>
+				<li class="ui edit"><span><b>/css/style-ui.css</b></span></li>
+				<li></li>
+			</ul>
+			<ul>	
+				<li><h3>사용자</h3></li>
+				<li class=""><span class="go">00_1_1_대시보드</span></li>
+				<li class="delete"><span class="go">01_1_1_게임그룹관리</span></li>
+				<li class="delete"><span class="go">01_1_2_게임그룹관리_등록_[팝업]</span></li>
+				<li class="delete"><span class="go">01_1_3_게임그룹관리_선택</span></li>
+				<li class="delete"><span class="go">01_1_4_게임그룹관리_선택_[팝업]</span></li>
+				<li><a hrer="#"></a></li>
+				<li><span class="go">02_1_1_게임정보관리</span></li>
+				<li class=""><span class="go">02_2_1_게임정보관리_등록</span></li>
+				<li class=""><span class="go">02_3_1_게임정보관리_상세</span></li>
+				<li class="delete"><span class="go">02_3_2_게임정보관리_상세_이미지_[팝업]</span></li>
+				<li class=""><span class="go">02_3_3_게임정보관리_상세_[팝업]</span></li>
+				<li><span class="go">02_4_1_게임정보관리_상세_버전히스토리</span></li>
+				<li><a hrer="#"></a></li>
+				<li class=""><span class="go">03_1_1_통계_가입자</span></li>
+				<li class=""><span class="go">03_2_1_통계_접속채널</span></li>
+				<li class=""><span class="go">03_3_1_통계_게임별</span></li>
+				<li class="" ><span class="go">03_4_1_전산정보조회</span></li>
+				<li class=""><span class="go">03_5_1_통계_CCU</span></li>
+				<li class=""><span class="go">03_6_1_통계_DAU</span></li>
+				<li class=""><span class="go">03_7_1_통계_MAU</span></li>
+				<li><a hrer="#"></a></li>
+				<li><span class="go">04_1_1_공지사항</span></li>
+				<li><span class="go">04_1_2_공지사항_상세</span></li>
+				<li><span class="go">04_1_3_공지사항_등록</span></li>
+				<li><a hrer="#"></a></li>
+				<li><span class="go">05_1_1_정보관리_계정</span></li>
+				<li><span class="go">05_1_2_정보관리_계정_수정</span></li>
+				<li><span class="go">05_2_1_정보관리_사용자</span></li>
+				<li><span class="go">05_2_2_정보관리_사용자_상세</span></li>
+				<li><span class="go">05_2_3_정보관리_사용자_등록</span></li>
+			</ul>
+			<ul>
+				<li><h3>kt관리자</h3></li>
+				<li class="delete"><span class="go">01_2_1_[관리자]_게임그룹관리</span></li>
+				<li class="delete"><span class="go">01_2_2_[관리자]_게임그룹관리_선택</span></li>
+				<li><a hrer="#"></a></li>
+				<li class=""><span class="go">06_1_1_[관리자]_정보관리_개발사</span></li>
+				<li class=""><span class="go">06_1_2_[관리자]_정보관리_개발사_상세</span></li>
+				<li class=""><span class="go">06_1_3_[관리자]_정보관리_개발사_등록</span></li>
+				<li class=""><span class="go">06_2_1_[관리자]_정보관리_관리자계정</span></li>
+				<li class=""><span class="go">06_2_2_[관리자]_정보관리_관리자계정_상세</span></li>
+				<li class=""><span class="go">06_2_3_[관리자]_정보관리_관리자계정_등록_수정</span></li>
+				<li class=""><span class="go">06_3_1_[관리자]_정보관리_정산</span></li>
+				<li class=""><span class="go">06_3_2_[관리자]_정보관리_정산_상세</span></li>
+				<li class=""><span class="go">06_3_3_[관리자]_정보관리_정산_등록</span></li>
+				<li class=""><span class="go">07_1_1_정보관리_마일스톤</span></li>
+				<li class=""><span class="go">07_1_2_정보관리_마일스톤_[팝업]</span></li>
+				<li class=""><span class="go">08_1_1_정보관리_매출액관리</span></li>
+				<li class=""><span class="go">08_1_2_정보관리_매출액관리_[팝업]</span></li>
+			</ul>
+			<ul>
+				<li><h3>상품관리</h3></li>
+				<li class=""><span class="go">103_1_1_[관리자]_상품관리_상품목록</span></li>
+				<li class=""><span class="go">103_1_2_[관리자]_상품관리_상품목록_등록</span></li>
+				<li class=""><span class="go">103_1_3_[관리자]_상품관리_상품목록_상세</span></li>
+				<li class=""><span class="go">103_1_4_[관리자]_상품관리_상품목록_수정</span></li>
+				<li class=""><span class="go">103_2_1_[관리자]_상품관리_주문내역관리</span></li>
+				<li class=""><span class="go">103_2_2_[관리자]_상품관리_주문내역관리_상세</span></li>
+				<li class=""><span class="go">103_2_3_[관리자]_상품관리_주문내역관리_수정</span></li>
+				<li class=""><span class="go">103_3_1_[관리자]_상품관리_통계</span></li>
+				<li class=""><span class="go">참고</span></li>
+				<li class=""><span class="go">02_3_1_게임정보관리_상세</span></li>
+			</ul>
+    </div>
+
+		<style>
+			h1{margin:1em 2em; font-size:20px; } h1 span{font-size: 18px} h1 i{font-size:12px}
+			.grid-container{display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, auto)); font-size:14px; gap:1em; margin:0 3em 3em 3em;}
+			ul{ border:1px solid rgba(0,0,0,0.2);  margin-bottom:3em;}
+			li{ border-bottom:1px solid #ddd;}
+			h3{color:rgb(121, 121, 173); font-weight:600; padding:7px 10px 7px 20px;  background-color: rgb(235, 239, 250);}
+			a{position: relative; display:block; padding:5px 10px 5px 20px;  background-color: #fff;  letter-spacing: -0.5px; font-size:14px;}
+			a:hover{color:black;  background-color: #f5f5f5;}
+			.new span,
+			.edit span,
+			.delete span{padding-left:20px;}
+			.new span a,
+			.edit span a,
+			.delete span a{display:inline-block;}
+			.delete a{text-decoration: line-through; text-decoration-color:#00ff00;} 
+			.new span:before{content:'[추가 22/03/30]'; color:blue;}
+			.edit span:before{content:'[수정 22/03/30]'; color:red;}
+			.delete span:before{content:"[삭제]"; color:gray;}
+		  .ui{
+				padding:5px 10px 5px 5px;
+			}
+		  .ui span b{
+				padding-left:20px;
+			}
+		</style>
+</body>
+</html>

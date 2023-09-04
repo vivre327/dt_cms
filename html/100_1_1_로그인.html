@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+        
+    <article class="login-page">
+      <div class="login-box">
+        <div class="login-ci">
+          <img src="../assets/images/common/login_logo.png" alt="gamebox">
+        </div>
+        <div class="login-form">
+          <form action="" id="">
+  
+            <div class="login-form-id">
+              <input type="text" id="" class="input--st" placeholder="아이디">
+            </div>
+            <div class="login-form-pw">
+              <input type="password" id="" class="input--st" placeholder="비밀번호">
+            </div>
+            <div class="login-form-save">
+              <div class="login-save">
+                <label class="chk--st big">
+                  <input type="checkbox" id="" checked>
+                  <span class="chk-in-text">아이디 저장</span>
+                </label>
+              </div>
+            </div>
+
+            <dl class="form-sheet mr-t3">
+              <dd>
+                <div>
+                  <input type="text" class="input--st" placeholder="'-' 없이 입력">
+                  <button type="button" class="btn--st btn-major input-after-btn">인증번호 요청</button>
+                </div>
+              </dd>
+              <dd>
+                <div>
+                  <div class="input-auth-box">
+                    <input type="text" class="input--st" placeholder="인증번호 6자리">
+                    <span class="time-limit">03:00</span>
+                  </div>
+                  <button type="button" class="btn--st btn-major input-after-btn">인증확인</button>
+                </div>
+                <p class="valid-message">인증이 완료 되었습니다.</p>
+                <p class="valid-message color-red">인증번호를 정확하게 입력해주세요.</p>
+              </dd>
+            </dl>
+
+          </form>
+          
+          <button id="" class="btn--st btn-major login-form-btn"  onclick="popOpen('#popAlertLogin');">로그인</button>
+  
+          <div class="login-links">
+            <a href="#">비밀번호 찾기</a>
+            <a href="#">아이디 찾기</a>
+            <a href="#">회원가입</a>
+          </div>
+
+          <p class="login-copyright">Copyright&copy; 2020 kt corp. All rights reserved.</p>
+
+        </div>
+      </div>    
+    </article>
+
+   
+
+  </div> 
+</body>
+</html>

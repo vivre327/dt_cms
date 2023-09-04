@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>정산 정보 관리<small>Calculation Infomation Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <select class="select--st" style="width:240px">
+                <option>전체</option>
+                <option>개발사 명</option>
+                <option>게임 명</option>
+                <option>정산 담당자 명</option>
+              </select>
+              <div class="input-search-wrap">
+                <input type="text" placeholder="검색어 입력">
+                <button class="bt-ico-search"><span class="bt-ico-plus">검색버튼</span></button>
+              </div>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-major"><span class="bt-ico-plus">정산정보 등록</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-type--list check-all-group">
+            <table class="tbl-hover-bg ">
+              <caption></caption>
+              <colgroup>
+                <col style="width:60px">
+                <col style="width:120px">
+                <col style="width:170px">
+                <col style="width:170px">
+                <col style="width:auto">
+                <col style="width:170px">
+                <col style="width:150px">
+                <col style="width:130px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>
+                    <label class="chk--st">
+                      <input type="checkbox" id="" class="check_all">
+                      <span></span>
+                    </label>
+                  </th>
+                  <th>정산방법</th>
+                  <th>개발사</th>
+                  <th>게임 아이디</th>
+                  <th>게임명</th>
+                  <th>M&#47;G(월)</th>
+                  <th>R&#47;S(개발사&#47;KT)</th>
+                  <th>등록일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>월 정산</td>
+                  <td>블리자드</td>
+                  <td>BioshockInfinite</td>
+                  <td>디아블로2 리저렉션</td>
+                  <td>10,000,000 KRW</td>
+                  <td>50% / 50%</td>
+                  <td>YYYY.MM.DD</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>별도 합의</td>
+                  <td>블리자드</td>
+                  <td>BioshockInfinite</td>
+                  <td>디아블로2 리저렉션</td>
+                  <td>11,000 USD</td>
+                  <td>50% / 50%</td>
+                  <td>YYYY.MM.DD</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="paging-box">
+            <div class="paging-box-left">
+              <button class="btn--st btn-base">선택삭제</button>
+            </div>
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+            <div class="paging-box-right"></div>
+          </div><!--//.paging-box-->
+
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+</body>
+</html>

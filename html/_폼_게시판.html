@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css"> 
+  <script>
+    $(function() {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], 
+          daysOfWeek: ['일','월','화','수','목','금','토'], 
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+      $('input[name="typeDateRange"]').daterangepicker({
+        timePicker: true,
+        timePicker24Hour: true,
+        timePickerSeconds: false,
+        singleDatePicker: false,
+        locale :{
+          format: 'YYYY-MM-DD HH:mm:ss',
+          monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], 
+          daysOfWeek: ['일','월','화','수','목','금','토'], 
+          separator: ' ~ ',
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="contents">
+        <div style="height:50px;"></div>
+
+
+
+        <article>
+          <div class="tbl-form-title">
+            <h3>form</h3>
+            <span class="info-message">( <i class="ico-required"></i> 표시는 필수 입력 사항입니다. )</span>
+          </div>
+
+          <div class="tbl-type--form-noline">
+            <table>
+              <caption>* td안에 div는 display:flex 속성</caption>
+              <colgroup>
+                <col style="width:120px">
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>[type="text"]</th>
+                  <td>
+                    <input type="text" class="input--st">
+                  </td>
+                  <th>[type="password"]</th>
+                  <td>
+                    <input type="password" class="input--st">
+                  </td>
+                </tr>
+                <tr>
+                  <th>[type="date"]</th>
+                  <!--
+                    date : 달력 
+                    week : 달력 + 주 
+                    month : --년--월 
+                    time : 오전 --/--
+
+                    ie11도불가. edge부터 가능
+                    ff : date는 가능 
+                  -->
+                  <td>
+                    <input type="date" class="input--st">
+                  </td>
+                  <th>[type="number"]<br>기본style삭제</th>
+                  <!-- 
+                    모바일 숫자+특수문자판 등장 
+                    크롬,엣지는 숫자만 입력. ie안됨 
+                  -->
+                  <td>
+                    <input type="number" class="input--st">
+                  </td>
+                </tr>
+                <tr>
+                  <th>[type="month"]</th>
+                  <td>
+                    <input type="month" class="input--st">
+                  </td>
+                  <th>pc : ie11/safari/firefox 안되는데value를 써주면 입력해서 수정은 가능... 실제 아이콘 영역만 클릭 가능. ie는 2022-01로나오는데 크롬은 2022년1월로 표기</th>
+                  <td>
+                    <div class="df">
+                      <div class="month-input-wrap">
+                        <input type="month" name=""  placeholder="YYYY-MM" value="2022-01"/>
+                        <span class="bt-month-open">
+                          <button type="button"></button>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <style>
+                    /* .month-input-wrap input[type="month"]::-webkit-calendar-picker-indicator {
+                      color: transparent;
+                      background: none;
+                      z-index: 1;
+                    }
+                    .month-input-wrap input[type="month"]:before {
+                      display: block;
+                      background: #F8485E url('../assets/images/icon/ico_calendar.png') no-repeat center;
+                      font-size: 0;
+                      content: '';
+                      width: 38px;
+                      height: 38px;
+                      position: absolute;
+                      top: 0px;
+                      right: 0px;
+                    } */
+                  </style>
+                </tr>
+                <tr>
+                  <th>[type="email"]</th>
+                  <!-- 모바일키보드 스페이스옆 @ 추가됨 -->
+                  <td>
+                    <input type="email" class="input--st">
+                  </td>
+                  <th>[type="tel"]</th>
+                  <!-- 모바일 숫자만 등장 -->
+                  <td>
+                    <input type="tel" class="input--st">
+                  </td>
+                </tr>
+                 <tr>
+                  <th>datalist</th>
+                  <td>
+                    <!-- datalist -->
+                    <div class="datalist-wrap">
+                      <input list="fruitslist" name="fruits" id="fruits" autocomplete="off" class="input--st" value=''>
+                      <datalist id="fruitslist">
+                        <!-- 옵션에 label이 보이는데 선택은 value가 보임 -->
+                        <!-- <option value="apple" label="사꽈"></option>
+                        <option value="banana" label="뽜나나"></option>
+                        <option value="graph" label="포토"></option> -->
+                        <!-- 안쓰면 동일 -->
+                        <option>사과</option>
+                        <option>바나나</option>
+                        <option>포도</option> 
+                      </datalist>
+                    </div>
+
+                    <style>
+                      .datalist-wrap{position:relative;}
+                      .datalist-wrap .input--st {
+                        background: #fff url(../assets/images/form/select_off_down.png) no-repeat right 10px center;
+                        background-size: 10px 6px;
+                      }
+                      .datalist-wrap .input--st::-webkit-calendar-picker-indicator {
+                        display: none!important;
+                      }
+                      .datalist-wrap datalist {
+                        z-index: 999;
+                        position: absolute;
+                        top:40px;
+                        max-height: 20em;
+                        border: 0 none;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        border:1px solid #Ddd;
+                      }
+                      .datalist-wrap datalist option {
+                        font-size:14px;
+                        padding: 10px;
+                        background-color: #fff;
+                        cursor: pointer;
+                      }
+                      /* option active styles */
+                      .datalist-wrap datalist option:hover, 
+                      .datalist-wrap datalist option:focus {
+                        color:Red;
+                        background-color: #e9e9e9;
+                        outline: 0 none;
+                      }
+                    </style>
+
+                    <!-- 버튼 -->
+                    <input 
+                    type='button' 
+                    value='option 목록 가져오기' 
+                    onclick='getOptionList()'/>
+                    <br>
+                    <!-- option 목록 출력 -->
+                    * 벨류리스트 <br>
+                    <div id='valuelist'></div>
+                    <br>
+                    * 라벨리스트 <br>
+                    <div id='labellist'></div>
+                  </td>
+                  <th></th>
+                  <td>옵션 디자인 수정을위한 js<span class="color-red">datalist-css.js</span></td>
+                  <script src="../assets/js/datalist-css.min.js"></script>
+                  <!-- 좋은데..개발자가 샘플용으로 쓰라함 -_-
+                      https://www.npmjs.com/package/datalist-css 출처 
+
+                      https://hianna.tistory.com/438 참조로 옵션 리스트 가져오기 등 데이터변환 문제없나보기 
+                  -->
+                  <script>
+                    function getOptionList()  {
+                      // datalist의 option 목록 가져오기
+                      const options = document.getElementById('fruitslist').options;
+                      
+                      // 각각의 option에서 value, label 가져오기
+                      const optionsValue = [];
+                      const optionsLabel = [];
+                      for(let i = 0; i < options.length; i++) {
+                        const option = options[i];
+                        optionsValue.push(option.value);
+                        optionsLabel.push(option.label);
+                      }
+                      
+                      // datalist 목록 출력
+                      document.getElementById('valuelist').innerText = optionsValue;
+                      document.getElementById('labellist').innerText = optionsLabel;
+                    }
+                  </script>
+                </tr> 
+                <tr>
+                  <th>
+                    <label>select</label></i>
+                  </th>
+                  <td>
+                    <div>
+                      <select class="select--st">
+                        <option value="">-- 선택 --</option>
+                        <option value="red">레드</option>
+                        <option value="blue">블루</option>
+                      </select>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>
+                    기본 select
+                  </td>
+                </tr>
+                <tr>
+                  <th>콤보박스<br>(선택+입력)</th>
+                  <td>
+                    <!-- sample-datalist.js -->
+                    <script defer src="../assets/js/sample-datalist.js"></script>
+
+                    <div class="datalist-wrap" id="datalist">
+                      <input class="datalist-input" id="datalist-input" type="text" placeholder="개발사 선택">
+                      <i class="icon-arrow" id="datalist-icon" ></i>
+                      <ul class="datalist-ul scrollbar-thin" id="datalist-ul"></ul>
+                    </div>
+                    <!--//-->   
+                  </td>
+                  <th>&nbsp;</th>
+                  <td>* div 마크업 + <span class="color-red">sample-datalist.js</span></td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>select div<br>(사용안함)</label>
+                  </th>
+                  <td>
+                    <div>
+                      <select class="select-div" id="">
+                        <option value="hide">-- Month --</option>
+                        <option value="January">January</option>
+                        <option value="february">February</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
+                      </select> 
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>
+                    * select 마크업 이지만 div가 추가됨 
+                    <span class="color-red">style-ui.js // select div</span>
+                  </td>
+                </tr>
+                <!-- 
+                <tr>
+                  <th>
+                    <label>combo-img</label>
+                  </th>
+                  <td>
+                    <div class="select-ul-wrap st--overlay">.
+                      <span id="">선택</span>
+                      <ul>
+                        <li>옵션1</li>
+                        <li>옵션2</li>
+                        <li>옵션3</li>
+                      </ul>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>
+                    <span class="color-red">style-ui.js // combo</span><Br>
+                    * div로 마크업, img사용 적합
+                   disabled .st--showup
+                  </td>
+                </tr> 
+                -->
+                <tr>
+                  <th>
+                    <label class="ico-star">신청일</label>
+                  </th>
+                  <td>
+                    <div class="df">
+                      <div class="calendar-input-wrap">
+                        <input type="text" name="typeDate" class="input--st" id="00001">
+                        <label class="ico-calendar" for="00001">달력버튼</label>
+                      </div>
+                    </div>
+                  </td>
+                  <th></th>
+                  <td>
+                    * name="typeDate" <span class="color-red">daterangepicker.js</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>신청기간(+시간)</label>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="calendar-input-wrap" style="width:400px;">
+                        <input type="text" name="typeDateRange" class="input--st" id="00002">
+                        <label class="ico-calendar" for="00002">달력버튼</label>
+                      </div>
+                    </div>
+                  </td>
+                  <th></th>
+                  <td>
+                    * name="typeDateRange" <span class="color-red">daterangepicker.js</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>라벨</label>
+                  </th>
+                  <td>
+                    <div class="inp-btn-wrap">
+                      <input type="text" class="input--st" placeholder="예) 불정로 90, 종로3길">
+                      <button class="btn--st btn-major" onclick="popOpen('#popAddressResult');">주소검색</button>
+                    </div>
+                    <div class="mr-t1">
+                      <input type="text" class="input--st" placeholder="상세주소">
+                    </div>
+                  </td>
+                  <th>
+             
+                  </th>
+                  <td>
+                    * .inp-btn-wrap 버튼 붙여쓰기  
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>이름</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" placeholder="">
+                    </div>
+                  </td> 
+                  <th>
+                    <label>레디오박스</label>
+                  </th>
+                  <td>
+                    <div class="">
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st circle">
+                            <input type="radio" id="" name="radioName1" value="" checked>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st circle">
+                            <input type="radio" id="" name="radioName1" value="">
+                            <span class="chk-in-text">IOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st circle">
+                            <input type="radio" id="" name="radioName1" value="" checked disabled>
+                            <span class="chk-in-text">Window</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st circle">
+                            <input type="radio" id="" name="radioName1" value="" disabled>
+                            <span class="chk-in-text">Linux</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>연락처</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" placeholder="">
+                    </div>
+                  </td> 
+                  <th>
+                    <label>체크박스<Br>.circle</label>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap"><!-- 두줄이상시 class=" in-rows" 추가-->
+                        <li>
+                          <label class="chk--st circle">
+                            <input type="checkbox" id="" name="" value="" checked>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st circle">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">IOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st circle">
+                            <input type="checkbox" id="" name="" value=""
+                            checked disabled>
+                            <span class="chk-in-text">Window</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st circle">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">Linux</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>라이선스 수량</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" placeholder="100">
+                    </div>
+                  </td> 
+                  <th>
+                    <label>체크박스<Br>.big</label>
+                  </th>
+                  <td>
+                    <div class=""> 
+                      <ul class="chk-inline-wrap"><!-- 두줄이상시 class=" in-rows" 추가-->
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" checked>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">IOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" checked disabled>
+                            <span class="chk-in-text">Window</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">Linux</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                    <Br>
+                    <div> 
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="chk--st big">
+                            <input type="checkbox" id="" name="" value="" checked>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st big">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">IOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st big">
+                            <input type="checkbox" id="" name="" value="" checked disabled>
+                            <span class="chk-in-text">Window</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st big">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">Linux</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>내용</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <textarea id="" rows="5" class="textarea--st" placeholder=""></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>첨부파일</label>
+                  </th>
+                  <td>
+                    <div class="d-flex file-input-wrap">
+                      <input type="text" class="input--st input-file-text" id="fileVal" placeholder="선택된 파일 없음" readonly>
+                      <input type="file" id="fileBtn001"  onchange="javascript:document.getElementById('fileVal').value = this.value;"> 
+                      <button type="button" class="bt-file-delete" style="display:none">파일삭제버튼</button>
+                      <label for="fileBtn001" class="btn-file-upload btn--st btn-major input-after-btn">파일선택</label>
+                    </div>
+                  </td>
+                  <th></th>
+                  <td>
+                    * input type="file"의 id 와 가짜버튼(파일선택)의 for 값이 일치해야함 
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>첨부파일</label>
+                  </th>
+                  <td>
+                    <div class="d-flex file-input-wrap">
+                      <input type="text" class="input--st input-file-text" id="fileVal2" readonly value="smart edu_사용법.pdf">
+                      <input type="file" id="fileBtn002"  onchange="javascript:document.getElementById('fileVal2').value = this.value;"> 
+                      <button type="button" class="bt-file-delete" style="display:block">파일삭제버튼</button>
+                      <label for="fileBtn002" class="btn-file-upload btn--st btn-major input-after-btn">파일선택</label>
+                    </div>
+                  </td>
+                  <th>&nbsp;</th>
+                  <td>* x버튼 삭제 기능 개발 필요 </td>
+                </tr>
+                <tr>
+                  <th>
+                    multiple<Br>(선택 전)
+                  </label>
+                  </th>
+                  <td>
+                    <div class="file-multiple-wrap">
+                      <span class="file-input-wrap js_file_wrap multiple">
+                        <input type="file" id="f1" class="input_file_mti" multiple>
+                        <label for="f1" class="btn--st btn-base">파일선택</label>
+                      </span>
+                      <ul class="file-list-mti">
+                      </ul>
+                    </div>
+                  </td>
+                  <th>&nbsp;</th>
+                  <td><span class="color-red">style-ui.js // input file - multiple</span></td>
+                </tr>
+                <tr>
+                  <th>
+                    multiple<Br>(선택 후)
+                  </th>
+                  <td>
+                    <div class="file-multiple-wrap">
+                      <span class="file-input-wrap js_file_wrap multiple">
+                        <input type="file" id="f2" class="input_file_mti" multiple>
+                        <label for="f2" class="btn--st btn-base">파일선택</label>
+                      </span>
+                      <ul class="file-list-mti">
+                        <li>
+                          <a class="a-mti-txt">파일네임1.jpg</a>
+                          <button class="bt-file-del">삭제</button>
+                        </li>
+                        <li>
+                          <a class="a-mti-txt">파일네임2.jpg</a>
+                          <button class="bt-file-del">삭제</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                  <th>&nbsp;</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>
+                      fileName
+                    </label>
+                  </th>
+                  <td>
+                    <div class="file-input-wrap js_file_wrap">
+                      <input type="text" class="input--st input-file-text fake_fileinput" placeholder="선택된 파일 없음" readonly />
+                      <input type="file" id="fileNameThumb" class="original_fileinput">
+                      <label for="fileNameThumb" class="btn-file-upload btn--st btn-base input-after-btn">파일선택</label>
+                    </div>
+                  </td>
+                  <th></th>
+                  <td>
+                   <sapn class="color-red"> style-ui.js // input file - file name</sapn><br>.js_file_wrap 추가
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>
+                      thumbnail
+                    </label>
+                  </th>
+                  <td>
+                    <div class="file-preview-wrap">
+
+                      <div class="file-preview-position">
+                        <div class="file-preview-item" style="max-width: 252px;">
+                          <figure class="file-preview-figure">
+                            <img src="../assets/images/form/no-image.png"/>
+                          </figure>
+                        </div>
+                      </div>
+
+                      <div class="d-flex file-input-wrap js_file_wrap">
+                        <input class="input--st input-file-text fake_fileinput" placeholder="선택된 파일 없음"  readonly/>
+                        <input type="file" id="uploadfileImg" class=" original_fileinput">
+                        <label for="uploadfileImg" class="btn-file-upload btn--st btn-base input-after-btn">파일선택</label>
+                        <label class="btn--st btn-sub input-after-btn">삭제</label>
+                      </div>
+                    </div>
+                  </td>
+                  <th></th>
+                  <td>
+                    <span class="color-red">style-ui.js // input file - preview img</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          
+          <div class="tbl-form-title">
+            <h3>form 제목</h3>
+          </div>
+          <form class="tbl-type--form"  action="" method="" id="">
+            <table>
+              <caption>라이센스 신청 상세내용</caption>
+              <colgroup>
+                <col style="width:120px">
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>select</label>
+                  </th>
+                  <td>
+                    <div>
+                      <select class="select--st select-readonly">
+                        <option selected>선택된 값</option>
+                        <option>선택1</option>
+                        <option>선택2</option>
+                      </select>
+                      <!-- <select class="select--st select-readonly" 
+                       onFocus="this.initialSelect = this.selectedIndex;"
+                       onChange="this.selectedIndex = this.initialSelect;"
+                      > -->
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>* readonly처럼 동작 : <span class="color-red">style-ui.js // .select-readonly</span></td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>select</label>
+                  </th>
+                  <td>
+                    <div>
+                      <select class="select--st" disabled>
+                        <option>선택됨</option>
+                        <option>선택1</option>
+                        <option>선택2</option>
+                      </select>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>* disabled 속성 사용</td>
+                </tr>
+<!-- 
+                <tr>
+                  <th>
+                    <label>combo</label>
+                  </th>
+                  <td>
+                    <div class="select-ul-wrap st--overlay disabled" style="width:100px;">
+                      <span id="">선택됨</span>
+                      <ul>
+                        <li>옵션1</li>
+                        <li>옵션2</li>
+                        <li>옵션3</li>
+                      </ul>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>* .disabled 클래스 사용</td>
+                </tr> -->
+                <tr>
+                  <th>
+                    <label>학교명</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="여의도 초등학교" readonly>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>주소</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="서울특별시 영등포구 여의대방로 439" readonly>
+                    </div>
+                  </td>
+                  <th>
+                   
+                  </th>
+                  <td>
+                   
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label >이름</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="김교사" readonly>
+                    </div>
+                  </td> 
+                  <th>&nbsp;</th>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>연락처</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="01055557777" readonly>
+                    </div>
+                  </td> 
+                  <th>
+                    <label>E-mail</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="jaemmintv@naver.com" readonly>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>라이선스 수량</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" value="100" readonly>
+                    </div>
+                  </td> 
+                  <th>
+                    <label>지원 단말 모델</label>
+                  </th>
+                  <td>
+                    <div> 
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled  checked>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">IOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">Window</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>내용</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <textarea id="" rows="5" class="textarea--st" readonly>내용입니다.</textarea>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
+          <div class="tbl-bottom-btns ">
+            <button type="button" class="btn--st btn-base">취소</button>
+            <button type="submit" class="btn--st btn-major">신청</button>
+            <button class="btn--st btn-major-outline">버전업데이트</button>
+            <button type="submit" class="btn--st btn-sub">삭제</button>
+          </div>
+        </article>
+
+        <article class="mr-t4">
+
+          <form class="tbl-top">
+            <div class="tbl-top-left">
+              <h3>문의관리</h3>
+            </div>
+            <div class="tbl-top-right">
+              <select class="select--st" style="width:180px;">
+                <option>전체</option>
+                <option>옵션1</option>
+                <option>옵션2</option>
+              </select>
+              <div class="input-search-wrap">
+                <input type="text" placeholder="검색어 입력">
+                <button class="bt-ico-search">검색버튼</button>
+              </div>
+              <button class="btn--st btn-major mr-l4">문의등록</button>
+            </div>
+          </form>
+
+          <div class="tbl-type--list check-all-group"><!--.check-all-group : style-ui.js // all check -->
+            <table class="tbl-ellipsis">
+              <caption>문의 관리 테이블</caption>
+              <colgroup>
+                <col style="width:60px">
+                <col style="width:88px">
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:180px">
+                <col style="width:180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>
+                    <label class="chk--st">
+                      <input type="checkbox" id="" class="check_all"><!--.check_all : style-ui.js // all check -->
+                      <span></span>
+                    </label>
+                  </th>
+                  <th>No.</th>
+                  <th>제목</th>
+                  <th>등록일</th>
+                  <th>등록자</th>
+                  <th>첨부파일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item"><!--.check_item : style-ui.js // all check -->
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>10</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>9</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>8</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>7</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>6</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>5</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>4</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>3</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>2</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>1</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><a href="#" class="a-link-download" download="">다운로드</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+           <div class="paging-box">
+            <div class="paging-box-left">
+              <button class="btn--st btn-base">선택삭제</button>
+            </div>
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+            <div class="paging-box-right"></div>
+          </div><!--//.paging-box-->
+
+          <br>
+          <br>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left self-end">
+              <span class="t-txt">게시물 전체</span>
+              <span class="t-total"><b>211</b></span>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-major"><span class="bt-ico-plus">개발사 등록</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <select class="select--st" style="width: 240px">
+                <option>채널선택</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+
+              <select class="select--st" style="width: 140px">
+                <option>일단위</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-sub"><span class="bt-ico-excel">엑셀 다운로드</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-type--list">
+            <table class="tbl-ellipsis tbl-hover-bg">
+              <caption>문의 관리 테이블</caption>
+              <colgroup>
+                <col style="width:88px">
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:180px">
+                <col style="width:180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>제목</th>
+                  <th>등록일</th>
+                  <th>등록자</th>
+                  <th>조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-notice">
+                  <td>10</td>
+                  <td class="td-left">
+                    <p class="ico-notice">사용자 매뉴얼 업로드 안내</p>
+                  </td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td class="td-left">제목입니다.</td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td class="td-left">제목입니다.</td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td class="td-left">제목입니다.</td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td class="td-left">제목입니다.</td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-type--list tbl-sticky" style="height:280px;">
+            <table class="tbl-ellipsis">
+              <caption>문의 관리 테이블</caption>
+              <colgroup>
+                <col style="width:88px">
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:180px">
+                <col style="width:180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>제목</th>
+                  <th>등록일</th>
+                  <th>등록자</th>
+                  <th>상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><span class="reply-standby">답변대기</span></td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><span class="reply-complete">답변완료</span></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><span class="reply-complete">답변완료</span></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td><span class="reply-standby">답변대기</span></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td class="td-link"><a href="#" class="a-link">별도의 사용설명서는 없나요?</a></td>
+                  <td>김성생</td>
+                  <td>2022.01.31</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-box">
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+          </div><!--//.paging-box-->
+ 
+        </article>
+
+
+        <article>
+          <div class="tbl-form-title">
+            <h3>게임 기본 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>            
+                <tr>
+                  <th>
+                    <label>개발사</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <!-- <script defer src="../assets/js/sample-datalist.js"></script>
+                      <div class="datalist-wrap" id="datalist" style="width:240px">
+                        <input class="datalist-input" id="datalist-input" type="text" placeholder="개발사 선택">
+                        <i class="icon-arrow" id="datalist-icon"></i>
+                        <ul class="datalist-ul scrollbar-thin" id="datalist-ul"></ul>
+                      </div> -->
+                    </div>
+                  </td>
+                </tr>             
+                <tr>
+                  <th>
+                    <label>게임 아이디</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <input type="text" class="input--st" placeholder="게임 아이디">
+                      <button class="btn--st btn-major input-after-btn">중복체크</button>
+                      <p class="valid-message color-red">사용 불가능한 게임 ID 입니다.</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임&#47;서브타이틀</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv2">
+                      <script defer src="../assets/js/sample-datalist-1.js"></script>
+                      <div class="datalist-wrap" id="datalist1">
+                        <input class="datalist-input" id="datalist-input1" type="text" placeholder="게임그룹 선택">
+                        <i class="icon-arrow" id="datalist-icon1"></i>
+                        <ul class="datalist-ul scrollbar-thin" id="datalist-ul1"></ul>
+                      </div>
+
+                      <i class="i-middle-arrow"></i>
+
+                      <script defer src="../assets/js/sample-datalist-2.js"></script>
+                      <div class="datalist-wrap" id="datalist2">
+                        <input class="datalist-input" id="datalist-input2" type="text" placeholder="게임 선택">
+                        <i class="icon-arrow" id="datalist-icon2"></i>
+                        <ul class="datalist-ul scrollbar-thin" id="datalist-ul2"></ul>
+                      </div>
+
+                      <i class="i-middle-slash"></i>
+
+                      <input type="text" class="input--st" placeholder="서브타이틀 입력">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>버전</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" style="width:240px" placeholder="버전">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-form-title">
+            <h3>게임 이미지 등록</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:160px">
+                <col style="width:160px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th class="text-center" colspan="2">
+                    <label>PC Web 홈화면 이미지</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileValh01"
+                          placeholder="홈 상단 이미지(1920X540)" readonly>
+                        <input type="file" id="fileBtnh01"
+                          onchange="javascript:document.getElementById('fileValh01').value = this.value;">
+                        <label for="fileBtnh01" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                      <button class="btn--st btn-sub input-after-btn">이미지 미리보기</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="td-space-line"></td>
+                </tr>
+                <tr class="tr-top-line">
+                  <th class="text-center" rowspan="5">
+                    <label>이미지</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <th>
+                    <label class="label-gray">로고 이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileVali01" placeholder="로고 이미지(336X336)"
+                          readonly>
+                        <input type="file" id="fileBtni01"
+                          onchange="javascript:document.getElementById('fileVali01').value = this.value;">
+                        <label for="fileBtni01" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                      <button class="btn--st btn-sub input-after-btn">이미지 미리보기</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label class="label-gray">홈(가로)이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileVali02"
+                          placeholder="홈(가로)이미지(1920X910)" readonly>
+                        <input type="file" id="fileBtni02"
+                          onchange="javascript:document.getElementById('fileVali02').value = this.value;">
+                        <label for="fileBtni02" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label class="label-gray">홈(세로)이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileVali03"
+                          placeholder="홈(세로)이미지(696X1024)" readonly>
+                        <input type="file" id="fileBtni03"
+                          onchange="javascript:document.getElementById('fileVali03').value = this.value;">
+                        <label for="fileBtni03" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label class="label-gray">메인 이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileVali04"
+                          placeholder="메인 이미지(696X1024)" readonly>
+                        <input type="file" id="fileBtni04"
+                          onchange="javascript:document.getElementById('fileVali04').value = this.value;">
+                        <label for="fileBtni04" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label class="label-gray">게임 로딩 이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileVali05"
+                          placeholder="게임 로딩 이미지(1920X910)" readonly>
+                        <input type="file" id="fileBtni05"
+                          onchange="javascript:document.getElementById('fileVali05').value = this.value;">
+                        <label for="fileBtni05" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </article>
+
+        <article class="mr-t4">
+
+          <div class="tab-nojs">
+            <button type="button" class="btn-tab current">게임정보</button>
+            <button type="button" class="btn-tab">버전 히스토리</button>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>게임 기본 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>게임 아이디</label>
+                  </th>
+                  <td>
+                    <div>BioshockInfinite.2k.steam.2013</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임&#47;서브타이틀</label>
+                  </th>
+                  <td>
+                    <div>
+                      디아블로
+                      <i class="i-middle-arrow"></i>
+                      디아블로2 리저렉션
+                      <i class="i-middle-slash"></i>
+                      파괴의 군주 확장팩
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>버전</label>
+                  </th>
+                  <td>
+                    <div>
+                      2.4.1
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>게임 이미지</h3>
+            <span class="info-message p-right">이미지를 클릭하면 크게 볼 수 있습니다.</span>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:160px">
+                <col style="width:160px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th class="text-center" colspan="2">
+                    <label>PC Web 홈화면 이미지</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <img src="http://placehold.it/424x120/eeeeee?text=image">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="td-space-line"></td>
+                </tr>
+<!-- 등록화면과 다른 영역 start : .tbl-img-preview -->
+                <tr>
+                  <td colspan="3" class="tbl-img-preview">
+                    <div class="tbl-type--list">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th colspan="5">
+                              이미지
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>
+                              로고 이미지
+                            </th>
+                            <th>
+                              홈(가로)이미지
+                            </th>
+                            <th>
+                              홈(세로)이미지
+                            </th>
+                            <th>
+                              메인 이미지
+                            </th>
+                            <th>
+                              게임 로딩 이미지
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <img src="http://placehold.it/120x120/eeeeee?text=image">
+                            </td>
+                            <td>
+                              <img src="http://placehold.it/254x120/eeeeee?text=image">
+                            </td>
+                            <td>
+                              <img src="http://placehold.it/82x120/eeeeee?text=image">
+                            </td>
+                            <td>
+                              <img src="http://placehold.it/82x120/eeeeee?text=image">
+                            </td>
+                            <td>
+                              <img src="http://placehold.it/254x120/eeeeee?text=image">
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="td-space-line"></td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="tbl-img-preview" >
+                    <div class="tbl-type--list">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th colspan="4">
+                              게임 조작 메뉴얼
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>
+                              메뉴얼_01
+                            </th>
+                            <th>
+                              메뉴얼_02
+                            </th>
+                            <th>
+                              메뉴얼_03
+                            </th>
+                            <th>
+                              메뉴얼_04
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                            
+                            </td>
+                            <td>
+                              <img src="http://placehold.it/254x120/eeeeee?text=image">
+                            </td>
+                            <td>
+                              &nbsp;
+                            </td>
+                            <td>
+                              &nbsp;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+<!--// 등록화면과 다른 영역 end -->                
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>게임 상세 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>배급사</label>
+                  </th>
+                  <td>
+                    <div>
+                      블리자드
+                    </div>
+                  </td>
+                  <th>
+                    <label>게임 출시일</label>
+                  </th>
+                  <td>
+                    <div>
+                      2021-01-22
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>저작권 문구</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      무단복제 금지
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임설명</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      디아블로를 무찌르고 다양한 보상을 얻어보세요.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>수상이력</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      2021 GOTY<br>
+                      2021 유저가 뽑은 올해의 게임
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>지원언어</label>
+                  </th>
+                  <td>
+                    <div>
+                      영어, 중국어, 일본어, 한국어
+                    </div>
+                  </td>
+                  <th>
+                    <label>한글 지원</label>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportKorean" checked disabled>
+                            <span class="chk-in-text">지원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportKorean" disabled>
+                            <span class="chk-in-text">미지원</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>멀티플레이 지원</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportMulti" checked disabled>
+                            <span class="chk-in-text">지원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportMulti" disabled>
+                            <span class="chk-in-text">미지원</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>이용구분</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPayfree" checked disabled>
+                            <span class="chk-in-text">유료</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPayfree" disabled>
+                            <span class="chk-in-text">무료</span>
+                          </label>
+                        </li>
+                        <li>
+                          <div class="st--tdr1">
+                            <i class="i-middle-slash"></i>
+                            <span>체험하기 시간</span>
+                            <input type="text" class="input--st" placeholder="숫자만 입력">
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>이용연령</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge" checked disabled>
+                            <span class="chk-in-text">전체이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge" disabled>
+                            <span class="chk-in-text">12세 이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge" disabled>
+                            <span class="chk-in-text">15세이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge" disabled>
+                            <span class="chk-in-text">청소년 이용불가</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>내용 정보</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" checked disabled>
+                            <span class="chk-in-text">폭력성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">공포</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">약물</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">범죄</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">선정성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">사행성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" disabled>
+                            <span class="chk-in-text">언어의 부적절성</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임장르</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      액션
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>검색 키워드</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      블리자드 / 액션 RPG / 핵앤슬래시
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>스팀 태그</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <div class="tag-btn-wrap">
+                        <span class="tag-btn">
+                          <b>웅장한 사운드 트랙</b>
+                        </span>
+                        <span class="tag-btn">
+                          <b>협동 캠페인</b>
+                        </span>
+                        <span class="tag-btn">
+                          <b>스팀태그</b>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>HTML 게임 여부</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <span class="st--tdr2">
+                        <label class="chk--st">
+                          <input type="checkbox" id="" name="" value="" checked disabled>
+                          <span class="chk-in-text">Yes</span>
+                        </label>
+                      </span>
+                      <input type="text" class="input--st" placeholder="HTML5 URL을 입력해주세요.">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>HTML 게임 정보</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <span class="st--tdr2">게임 Type</span>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioModeLandscape" checked disabled>
+                            <span class="chk-in-text">가로</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="ModeLandscape" disabled>
+                            <span class="chk-in-text">세로</span>
+                          </label>
+                        </li>
+                        <li>
+                          <div class="st--tdr1">
+                            <i class="i-middle-slash"></i>
+                            <span>무료플레이 가능 판 수</span>
+                            <input type="text" class="input--st" placeholder="숫자만 입력"  value="5" disabled>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임 가이드</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      https://game.kt.com/game/gamebox/game/guide/dia2rguide.asp
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="tbl-form-title">
+            <h3>게임 서비스 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>노출 사용자 앱 타입</label>
+                  </th>
+                  <td >
+                    <div class="st--tdr3 check-all-group">
+                      <ul class="chk-inline-wrap ">
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_all" disabled>
+                            <span class="chk-in-text">전체</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" checked disabled>
+                            <span class="chk-in-text">안드로이드</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">윈도우</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id=""class="check_item"  name="" value="" disabled>
+                            <span class="chk-in-text">iOS</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">기가지니</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">스카이라이프</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">한게임</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">안드로이드 TV</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">MAC OS</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>노출 사용자 결제 타입</label>
+                  </th>
+                  <td>
+                    <div class="st--tdr3 check-all-group">
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_all" disabled>
+                            <span class="chk-in-text">전체</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" checked disabled>
+                            <span class="chk-in-text">비로그인</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id=""class="check_item"  name="" value="" disabled>
+                            <span class="chk-in-text">무료회원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">쿠폰회원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">유료회원(게임박스)</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">유료회원(게임박스 플러스)</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" class="check_item" name="" value="" disabled>
+                            <span class="chk-in-text">유료회원(시즌 플러스)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>서비스 여부</label>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportService" checked disabled>
+                            <span class="chk-in-text">지원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportService" disabled>
+                            <span class="chk-in-text">미지원</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임 노출기간</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv3">
+                      2021-01-22 09<span>시</span>00<span>분</span>
+                      <i class="i-middle-wave"></i>
+                      2021-01-23 10<span>시</span>00<span>분</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>게임 조이스틱 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>가상 조이스틱</label>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioJoyUi" value="" checked disabled>
+                            <span class="chk-in-text">기본 UI</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioJoyUi" value="" disabled>
+                            <span class="chk-in-text">터치입력</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioJoyUi" value="" disabled>
+                            <span class="chk-in-text">유비투스 기본 UI</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioJoyUi" value="" disabled>
+                            <span class="chk-in-text">게임패드 Only</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>미니 조이스틱 Type</label>
+                  </th>
+                  <td>
+                    <div>
+                      01
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>일시정지 KeyCode</label>
+                  </th>
+                  <td>
+                    <div>
+                      108
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>팝업 노출 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>알림 팝업 노출</label>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioExposeToast" value="" checked disabled>
+                            <span class="chk-in-text">노출</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioExposeToast" value="" disabled>
+                            <span class="chk-in-text">미노출</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>알림 팝업 내용</label>
+                  </th>
+                  <td>
+                    <div>
+                      디아블로2 리저렉션 출시 기념이벤트!<br><br>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>알림 팝업 회차</label>
+                  </th>
+                  <td>
+                    <div>
+                      3
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>알림 팝업 시작 &#47; 종료</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv3">
+                      2021-01-22 09<span>시</span>00<span>분</span>
+                      <i class="i-middle-wave"></i>
+                      2021-01-23 10<span>시</span>00<span>분</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>알림 팝업 이벤트 ID</label>
+                  </th>
+                  <td>
+                    <div>
+                      dia2r.pop.event
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>미니 조이스틱 Type</label>
+                  </th>
+                  <td>
+                    <div class="st--tdv4">
+                      <span class="tft">웹뷰</span>
+                      <input type="text" class="input--st" placeholder="알림 팝업 URL 입력" value="https://benefit.kt.com/event/gamebox/dia2rgame/main.asp" disabled>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>미디어 기기따라 바뀌는 이미지</p>
+          <picture>
+            <source srcset="../assets/images/common/symbol.png" media="all and (max-width: 585px)">
+            <img src="../assets/images/common/login_logo.png" alt="큰로고" class="image" />
+          </picture> 
+
+          <br>
+          sup : <var>a<sup>2</sup></var>
+          <br>
+          dfn : 정의 요소<dfn id="def-validator">validator</dfn> is a ..
+          <br>
+          mark : 
+        </article>
+
+      </div>
+    </div>
+    <!--/container-->
+
+  
+  </div>
+  <!--/wrapper-->
+
+  <!--팝업: 주소검색결과 -->
+  <div class="popup-wrap" id="popAddressResult" style="display:none">
+    <div class="popup pop-size-l">
+      <div class="pop-head">
+        <h2 class="pop-title">주소검색</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <dl class="form-sheet">
+          <dt class="d-none">&nbsp;</dt>
+          <dd>
+            <div class="">
+              <input type="text" class="input--st" value="종로3길">
+              <button type="button" class="btn--st btn-major input-after-btn">검색</button>
+            </div>
+          </dd>
+        </dl>
+        <div class="address-search-result">
+          <ul class="address-list">
+            <li>
+              <label class="rad--st">
+                <input type="radio" id="" name="radioAddr" value="" checked>
+                <span class="chk-in-text"></span>
+              </label>
+              <p class="add-txt1">종로 3길</p>
+              <p class="add-txt2">[지번] 서울 종로구 청진동 184-1</p>
+              <p class="add-txt3">[도로명] 종로3길 34</p>
+            </li>
+            <li>
+              <label class="rad--st">
+                <input type="radio" id="" name="radioAddr" value="">
+                <span class="chk-in-text"></span>
+              </label>
+              <p class="add-txt1">종로 3길</p>
+              <p class="add-txt2">[지번] 서울 종로구 청진동 184-1</p>
+              <p class="add-txt3">[도로명] 종로3길 34</p>
+            </li>
+            <li>
+              <label class="rad--st">
+                <input type="radio" id="" name="radioAddr" value="">
+                <span class="chk-in-text"></span>
+              </label>
+              <p class="add-txt1">종로 3길</p>
+              <p class="add-txt2">[지번] 서울 종로구 청진동 184-1</p>
+              <p class="add-txt3">[도로명] 종로3길 34</p>
+            </li>
+            <li>
+              <label class="rad--st">
+                <input type="radio" id="" name="radioAddr" value="">
+                <span class="chk-in-text"></span>
+              </label>
+              <p class="add-txt1">종로 3길</p>
+              <p class="add-txt2">[지번] 서울 종로구 청진동 184-1</p>
+              <p class="add-txt3">[도로명] 종로3길 34</p>
+            </li>
+          </ul>
+        </div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+</html>

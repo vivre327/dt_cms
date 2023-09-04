@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="check_on" transform="translate(-282 -750)">
+    <rect id="사각형_6172" data-name="사각형 6172" width="20" height="20" rx="2" transform="translate(282 750)" fill="#f8485e"/>
+    <g id="icon_done" transform="translate(277.5 746.5)">
+      <line id="선_3" data-name="선 3" x2="4" y2="4" transform="translate(9 13)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1.5"/>
+      <line id="선_4" data-name="선 4" y1="7" x2="7" transform="translate(13 10)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

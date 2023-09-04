@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        autoApply: true, //버튼삭제 
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+
+  <div class="sample-btns">
+    <button class="sample" onclick="popOpen('#popMilestoneRegister');">팝업 : 마일스톤 등록</button>
+    <br>
+    <button class="sample" onclick="popOpen('#popMilestoneDetails');">팝업 : 마일스톤 상세 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popMilestoneCom');">팝업 : 마일스톤 등록 확인</button>
+    <br>
+  </div> 
+
+
+  <!-- 팝업 : 마일스톤 등록  -->
+  <div class="popup-wrap" id="popMilestoneRegister" style="display: none">
+    <div class="popup pop-size-l">
+      <div class="pop-head">
+        <h2 class="pop-title">마일스톤 등록</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="info-text-required">
+          <i class="ico-required"></i> 표시는 필수 입력 사항입니다.
+        </div>
+        <dl class="form-sheet">
+          <dt>개발사<i class="ico-required"></i></dt>
+          <dd>
+            <div>
+              <!-- 
+              <select class="select--st">
+                <option>선택1</option>
+                <option>선택2</option>
+              </select> -->
+            <script defer src="../assets/js/sample-datalist.js"></script>
+            <div class="datalist-wrap big" id="datalist">
+              <input class="datalist-input" id="datalist-input" type="text" placeholder="개발사 선택">
+              <i class="icon-arrow" id="datalist-icon" ></i>
+              <ul class="datalist-ul scrollbar-thin" id="datalist-ul"></ul>
+            </div> 
+            </div>
+          </dd>
+        </dl>
+        <dl class="form-sheet">
+          <dt>제목<i class="ico-required"></i></dt>
+          <dd>
+            <div>
+              <input type="text" class="input--st" placeholder="">
+            </div>
+          </dd>
+        </dl>
+        <dl class="form-sheet">
+          <dt>기간<i class="ico-required"></i></dt>
+          <dd>
+            <div class="st--sheet-date">
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+            </div>
+          </dd>
+          <dd class="mr-t2">
+            <textarea class="textarea--st" id="" rows="6" ></textarea>
+          </dd>
+        </dl>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popMilestoneCom');">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 팝업 : 마일스톤 상세  -->
+  <div class="popup-wrap" id="popMilestoneDetails" style="display:none">
+    <div class="popup pop-size-l">
+      <div class="pop-head">
+        <h2 class="pop-title">마일스톤 상세</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="info-text-required">
+          <i class="ico-required"></i> 표시는 필수 입력 사항입니다.
+        </div>
+        <dl class="form-sheet">
+          <dt>개발사<i class="ico-required"></i></dt>
+          <dd>
+            <div>
+              <input type="text" class="input--st" value="KT"  readonly>
+            </div>
+          </dd>
+        </dl>
+        <dl class="form-sheet">
+          <dt>제목<i class="ico-required"></i></dt>
+          <dd>
+            <div>
+              <input type="text" class="input--st" value="KT / 고스트러너 출시 이벤트"  readonly>
+            </div>
+          </dd>
+        </dl>
+        <dl class="form-sheet">
+          <dt>기간<i class="ico-required"></i></dt>
+          <dd>
+            <div class="st--sheet-date">
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart" value="2022-03-01" disabled>
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd" value="2022-03-03" disabled>
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+            </div>
+          </dd>
+          <dd class="mr-t2">
+            <textarea class="textarea--st" id="" rows="6" readonly>고스트러너 출시 이벤트 </textarea>
+          </dd>
+        </dl>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">수정</button>
+          <button type="button" class="btn--st btn-sub" onclick="popClose(this);">삭제</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--팝업: 팝업위팝업 .pop-z1 -->
+  <div class="popup-wrap pop-z1" id="popMilestoneCom" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">해당 정보를 등록하시겠습니까?</p>
+        <br>
+        <p class="pop-txt">등록이 완료되었습니다</p>
+        <br>
+        <p class="pop-txt">기간을 정확하게 선택해주세요</p>
+        <br>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
+

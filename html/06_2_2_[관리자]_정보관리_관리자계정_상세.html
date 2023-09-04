@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>관리자 계정 관리<small>Administrator Account Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="tbl-form-title">
+            <h3>관리자 계정 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+             <colgroup>
+               <col style="width:320px">
+               <col style="width:auto">
+               <col style="width:320px">
+               <col style="width:auto">
+             </colgroup>
+             <tbody>
+              <tr>
+                <th>
+                  <label>아이디</label>
+                </th>
+                <td>
+                  <div>
+                    blizzard_baal
+                  </div>
+                </td>
+                <th>
+                  <label>비밀번호</label>
+                </th>
+                <td>
+                  <div>
+                    <button type="button" class="btn--st btn-major">비밀번호 변경</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label>이름</label>
+                </th>
+                <td colspan="3">
+                  <div>
+                    이주알
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label>휴대폰</label>
+                </th>
+                <td>
+                  <div>
+                    010-1234-1234
+                  </div>
+                </td>
+                <th>
+                  <label>이메일</label>
+                </th>
+                <td>
+                  <div>
+                    izual@blizzard.kr
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label>가입일</label>
+                </th>
+                <td>
+                  <div>
+                    2021-12-22 09:00:00
+                  </div>
+                </td>
+                <th>
+                  <label>최근 접속일</label>
+                </th>
+                <td>
+                  <div>
+                    2021-12-22 09:00:00
+                  </div>
+                </td>
+               </tr>
+             </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-bottom-btns">
+            <button class="btn--st btn-base">목록</button>
+            <button class="btn--st btn-major">수정</button>
+            <button class="btn--st btn-sub">삭제</button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+   
+    <div id="skip_nav">
+      <a href="#gnb">메뉴 바로가기</a>
+      <a href="#contents">본문 바로가기</a>
+    </div>
+
+    <header class="header" id="header">
+      <div class="head-inner">
+        <h1 class="h1-logo">
+          <a href="#"><img src="../assets/images/common/logo_top.png" alt="gamebox" /></a>
+        </h1>
+        <nav id="gnb" class="nav">
+          <ul class="main-menu">
+            <li id="depth00" class="current-page"><!-- 레드라인 .current-page -->
+              <a href="#">대시보드</a>
+            </li>
+            <li id="depth01" class="">
+              <a href="#">게임관리</a>
+            </li>
+            <li id="depth02">
+              <a href="#">통계 및 정산</a>
+            </li>
+            <li id="depth03">
+              <a href="#">게시판</a>
+            </li>
+            <li id="depth04">
+              <a href="#">정보관리</a>
+            </li>
+          </ul>
+          <div class="mega-menu">
+            <div class="mega-menu-inner">
+              <ul class="sub-menu" data-target="depth00">
+                <li>
+                  <a href="#">대시보드</a>
+                </li>
+              </ul>
+              <ul class="sub-menu" data-target="depth01">
+                <li>
+                  <a href="#">게임 그룹 관리</a>
+                </li>
+                <li>
+                  <a href="#">게임 정보 관리</a>
+                </li>
+              </ul>
+              <ul class="sub-menu" data-target="depth02">
+                <li>
+                  <a href="#">가입자 통계</a>
+                </li>
+                <li>
+                  <a href="#">접속 채널 통계</a>
+                </li>
+                <li>
+                  <a href="#">게임별 통계</a>
+                </li>
+                <li>
+                  <a href="#">정산 정보 조회</a>
+                </li>
+                <li>
+                  <a href="#">CCU 통계</a>
+                </li>
+                <li>
+                  <a href="#">DAU 통계</a>
+                </li>
+                <li>
+                  <a href="#">MAU 통계</a>
+                </li>
+              </ul>
+              <ul class="sub-menu" data-target="depth03">
+                <li>
+                  <a href="#">공지사항</a>
+                </li>
+                <li>
+                  <a href="#">자료실</a>
+                </li>
+              </ul>
+              <ul class="sub-menu" data-target="depth04">
+                <li>
+                  <a href="#">개발사 정보 관리</a>
+                </li>
+                <li>
+                  <a href="#">관리자 계정 관리</a>
+                </li>
+                <li>
+                  <a href="#">정산 정보 관리</a>
+                </li>
+                <li>
+                  <a href="#">마일스톤</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="head-userinfo">
+          <!-- <button class="btn-top-login">관리자 로그인</button>  -->
+            <a href="#" class="userinfo">
+              <b class="name">홍길동</b>님
+            </a>
+            <button class="btn-top-logout"><span class="bt-ico-logout">로그아웃</span></button> 
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>페이지 제목<small>영문제목</small></h2>
+        </div>
+      </div>
+      <div class="contents" id="contents">
+
+
+
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" id="footer">
+      <div class="footer-inner">
+        <figure class="footer-ci"><img src="../assets/images/common/logo_bottom.png" alt="gamebox" /></figure>
+        <div class="footer-info">
+          <div class="footer-links"><!-- 2022.03.30 추가-->
+            <a href="#" class="ft-alink">회사소개</a>
+            <a href="#" class="ft-alink">이용약관</a>
+            <a href="#" class="ft-alink">개인정보처리방침</a>
+          </div>
+          <p><span>업체명</span>(주)케이티</p>
+          <p><span>대표이사</span>구현모</p>
+          <p><span>주소</span>경기도 성남시 분당구 불정로 90 (정자동)</p>
+          <p><span>사업자등록번호</span>102-81-42945</p>
+          <p><span>통신판매업신고</span>2002-경기성남-0048</p>
+          <p><span>문의</span>국번없이 100(자사 이용 시, 무료), 1588-0010(타사 이용 시, 유료)</p>
+          <div class="copyright">Copyright&copy; 2020 kt corp. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!--/wrapper-->
+
+
+
+</body>
+</html>

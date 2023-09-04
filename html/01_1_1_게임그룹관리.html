@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>게임 그룹 관리<small>Game Group Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article class="group-manage-page">
+          <div class="group-mb-wrap">
+            <div class="group-mb group-mb-first group-mb-active"><!-- .group-mb-active 박스색 레드 -->
+              <div class="group-mb-top">
+                <h3>게임그룹</h3>
+                <button class="btn--st"><span class="bt-ico-group-plus">그룹추가</span></button>
+              </div>
+              <div class="group-mb-list scrollbar-thin">
+                <!-- 데이터 없음-->
+                <div class="group-mb-nodata">
+                  <i class="figure01"></i>
+                  <p>등록된 게임 그룹이 없습니다.</p>
+                </div>
+              </div>
+            </div>
+            <!--/.group-mb-->
+            <div class="group-mb group-mb-second group-mb-disabled"><!-- .group-mb-disabled 박스색회색 -->
+              <div class="group-mb-top">
+                <h3>게임</h3>
+                <button class="btn--st"><span class="bt-ico-group-plus">게임추가</span></button>
+              </div>
+              <div class="group-mb-list scrollbar-thin">
+                <!-- 데이터 없음-->
+                <div class="group-mb-nodata">
+                  <i class="figure02"></i>
+                  <p>게임 그룹 등록 후 게임을 등록 해주세요.</p>
+                </div>
+              </div>
+            </div>
+            <!--/.group-mb-->
+          </div>
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+
+</body>
+</html>

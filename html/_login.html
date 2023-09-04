@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+ 
+</head>
+<body>
+      
+  <article class="login-page">
+    <div class="login-box">
+      <div class="login-ci">
+        <img src="../assets/images/common/login_logo.png" alt="">
+      </div>
+      <div class="login-form">
+        <form action="" id="">
+
+          <div class="login-form-id">
+            <input type="text" id="" class="input--st" placeholder="아이디">
+            <p class="valid-message color-red">err message</p>
+          </div>
+
+          <div class="login-form-pw">
+            <input type="password" id="" class="input--st" placeholder="비밀번호">
+          </div>
+
+          <div class="login-form-save">
+            <div class="login-save">
+              <label class="chk--st big">
+                <input type="checkbox" id="" checked>
+                <span class="chk-in-text">아이디 저장</span>
+              </label>
+            </div>
+          </div>
+
+          <button id="" class="btn--st btn-major login-form-btn"  >로그인</button>
+
+          <div class="login-links">
+            <a href="#" onclick="popOpen('#popAlertLogin');">비밀번호 찾기</a>
+            <a href="#" >아이디 찾기</a>
+            <a href="#" >회원가입</a>
+          </div>
+
+        </form>
+      </div>
+    </div>    
+  </article>
+
+
+
+  <!-- 팝업  -->
+  <div class="popup-wrap" id="popAlertLogin" style="display:none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          아이디 또는 비밀번호가 잘못 입력되었습니다.<br>
+          아이디와 비밀번호를 정확하게 입력해주세요.
+        </p>
+        <p class="pop-txt">
+          승인 대기중인 아이디입니다.<br>
+          관리자의 승인 후 로그인이 가능합니다.
+        </p>
+        <p class="pop-txt">
+          보안 문자를 정확하게 입력해주세요.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

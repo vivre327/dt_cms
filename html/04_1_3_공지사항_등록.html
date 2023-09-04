@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>공지사항<small>Notice</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="tbl-form-title">
+            <h3>공지사항 등록</h3>
+          </div>
+
+          <div class="tbl-type--form">
+            <table>
+              <caption></caption>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>설정</label>
+                  </th>
+                  <td>
+                    <div>
+                      <label class="chk--st">
+                        <input type="checkbox" id="" class="" checked>
+                        <span class="chk-in-text">상단 노출 설정</span>
+                      </label>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>제목</label>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" placeholder="">
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <label>내용</label>
+                  </th>
+                  <td>
+                    <div>
+                      <textarea id="" rows="10" class="textarea--st"  placeholder=""></textarea>
+                    </div>
+                  </td> 
+                </tr>
+                <tr>
+                  <th>
+                    <span>첨부파일</span>
+                  </th>
+                  <td>
+                    <div class="notice-file-upload-area">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileNameValue01" placeholder="선택된 파일 없음" readonly>
+                        <input type="file" id="fileBtnN01"  onchange="javascript:document.getElementById('fileNameValue01').value = this.value;"> 
+                        <button type="button" class="bt-file-delete" style="display: block;">삭제버튼</button>
+                        <label for="fileBtnN01" class="btn-file-upload btn--st btn-major input-after-btn">첨부파일 등록</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-bottom-btns">
+            <button class="btn--st btn-base">취소</button>
+            <button class="btn--st btn-major">등록</button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

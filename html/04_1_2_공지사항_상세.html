@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>공지사항<small>Notice</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="bbs-type--detail">
+            <div class="bbs-head">
+              <div class="bbs-head-left">
+                <h4 class="bbs-head-tit">서비스 안정화를 위한 임시 점검 안내</h4>
+              </div>
+              <div class="bbs-head-right">
+                <dl>
+                  <dd><span>등록일</span><b>2022-01-31</b></dd>
+                  <dd><span>조회수</span><b>0</b></dd>
+                  <dd><span>첨부파일</span><a href="#" class="a-link-down">gamebox_사용법.pdf</a></dd>
+                </dl>
+              </div>
+            </div>
+            <div class="bbs-body">
+              <p>안녕하세요.</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus dignissimos voluptatum possimus eligendi eos, rem officiis, fuga fugit distinctio cumque a voluptas incidunt delectus facere saepe ratione, suscipit veritatis inventore.</p>
+              <br><br>
+            </div>
+          </div>
+
+          <div class="tbl-bottom-btns">
+            <button class="btn--st btn-base">목록</button>
+            <button class="btn--st btn-major">수정</button>
+            <button class="btn--st btn-sub">삭제</button>
+          </div>
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+</body>
+</html>

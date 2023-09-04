@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>접속 채널 통계<small>Connect Channel Statics</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <select class="select--st" style="width: 240px">
+                <option>채널선택</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+
+              <select class="select--st" style="width: 140px">
+                <option>일단위</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-mint"><span class="bt-ico-excel">엑셀 다운로드</span></button><!--- 2022-02-11 : 클래스 변경 -->
+            </div>
+          </div>
+
+          <div class="tbl-type--list">
+            <table>
+              <caption></caption>
+              <colgroup>
+                <col style="width:180px">
+                <col style="width:280px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:auto">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>일자</th>
+                  <th>채널</th>
+                  <th>앱 실행</th>
+                  <th>게임 실행</th>
+                  <th>앱실행(Unique)-DAU</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>PC Web</td>
+                  <td>00</td>
+                  <td>00</td>
+                  <td>00</td>
+                </tr>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>PC Web</td>
+                  <td>00</td>
+                  <td>00</td>
+                  <td>00</td>
+                </tr>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>PC Web</td>
+                  <td>00</td>
+                  <td>00</td>
+                  <td>00</td>
+                </tr>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>PC Web</td>
+                  <td>00</td>
+                  <td>00</td>
+                  <td>00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!--paging area-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

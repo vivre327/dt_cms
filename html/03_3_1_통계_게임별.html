@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>게임별 통계<small>Game Statics</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <select class="select--st" style="width: 240px">
+                <option>게임 전체</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+              <select class="select--st" style="width: 240px">
+                <option>앱타입 전체</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-mint"><span class="bt-ico-excel">엑셀 다운로드</span></button><!--- 2022-02-11 : 클래스 변경 -->
+            </div>
+          </div>
+
+          <div class="tbl-type--list">
+            <table class="">
+              <caption></caption>
+              <colgroup>
+                <col style="width:120px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+                <col style="width:100px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th rowspan="2">일자</th>
+                  <th rowspan="2">게임실행</th>
+                  <th rowspan="2">게임실행<br/>(사용자)</th>
+                  <th colspan="5" class="left-liner-bold">게임시간(평균)</th>
+                  <th colspan="5" class="left-liner-bold">게임시간(합계)</th>
+                </tr>
+                <tr class="tr-th-2line"><!--- 2022-02-11 : 클래스 추가 -->
+                  <th class="left-liner-bold">PC</th>
+                  <th>Android<br/>Phone</th>
+                  <th>Safari</th>
+                  <th>기가지니</th>
+                  <th>합계</th>
+                  <th class="left-liner-bold">PC</th>
+                  <th>Android<br/>Phone</th>
+                  <th>Safari</th>
+                  <th>기가지니</th>
+                  <th>합계</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>5000</td>
+                  <td>100</td>
+                  <td class="left-liner-bold">100</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td class="left-liner-bold">100</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>2022.01.27</td>
+                  <td>5000</td>
+                  <td>100</td>
+                  <td class="left-liner-bold">100</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td class="left-liner-bold">100</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!--paging area-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>매출액 관리<small>Sales Infomation Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <span class="t-label">매출 기간 </span>
+              <div class="month-input-wrap">
+                <input type="month" name=""  placeholder="YYYY-MM" value="2021-10"/>
+                <span class="bt-month-open">
+                  <button type="button"></button>
+                </span>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="month-input-wrap">
+                <input type="month" name=""  placeholder="YYYY-MM" value="2022-03"/>
+                <span class="bt-month-open">
+                  <button type="button"></button>
+                </span>
+              </div>
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-major"><span class="bt-ico-plus">매출 정보 등록</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left self-end">
+              <span class="t-txt">매출 금액 합계</span>
+              <span class="t-total"><b>6,000,000</b><b>KRW</b></span>
+            </div>
+          </div>
+
+          <div class="tbl-type--list check-all-group">
+            <table class="tbl-hover-bg">
+              <caption></caption>
+              <colgroup>
+                <col style="width:60px">
+                <col style="width:260px">
+                <col style="width:auto">
+                <col style="width:300px">
+                <col style="width:300px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>
+                    <label class="chk--st">
+                      <input type="checkbox" id="" class="check_all">
+                      <span></span>
+                    </label>
+                  </th>
+                  <th>연월</th>
+                  <th>매출액(KRW)</th>
+                  <th>등록일</th>
+                  <th>최종 수정일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>2022.03</td>
+                  <td>100,000,000</td>
+                  <td>YYYY.MM.DD</td>
+                  <td>YYYY.MM.DD</td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="chk--st">
+                      <input type="checkbox" class="check_item">
+                      <span></span>
+                    </label>
+                  </td>
+                  <td>2022.03</td>
+                  <td>100,000,000</td>
+                  <td>YYYY.MM.DD</td>
+                  <td>YYYY.MM.DD</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-box">
+            <div class="paging-box-left">
+              <button class="btn--st btn-base">선택삭제</button>
+            </div>
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+            <div class="paging-box-right"></div>
+          </div><!--//.paging-box-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>게임 그룹 관리<small>Game Group Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article class="group-manage-admin-page"><!-- 관리자 페이지 -->
+          <div class="group-mb-wrap">
+            <div class="group-mb group-mb-search group-mb-active">
+              <div class="group-mb-top">
+                <h3>개발사 명</h3>
+              </div>
+<!-- sample-datalist.js -->
+              <script defer src="../assets/js/sample-datalist.js"></script>
+
+              <div class="datalist-wrap big choiced--st" id="datalist"><!-- 검색후 .choiced--st -->
+                <input class="datalist-input" id="datalist-input" type="text" placeholder="개발사 선택" value="블리자드">
+                <i class="icon-arrow" id="datalist-icon" ></i>
+                <ul class="datalist-ul scrollbar-thin" id="datalist-ul"></ul>
+              </div>
+<!--//-->         
+            </div>
+            <!--/.group-mb-search-->
+            <div class="group-mb group-mb-first group-mb-active"><!-- .group-mb-active 박스색 레드 -->
+              <div class="group-mb-top">
+                <h3>게임 그룹</h3>
+                <button class="btn--st"><span class="bt-ico-group-plus">그룹추가</span></button>
+              </div>
+              <div class="group-mb-list scrollbar-thin">
+                <ul>
+                  <li class="choiced"><!-- 선택됨 -->
+                    <p class="mb-tit">디아블로</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">MMORPG</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">로그라이크</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">RockStar Games</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">스포츠</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">디아블로디아블로디아블로디아블로</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--/.-->
+            <div class="group-mb group-mb-second group-mb-active"><!-- .group-mb-disabled 박스색회색 -->
+              <div class="group-mb-top">
+                <h3>게임</h3>
+                <button class="btn--st"><span class="bt-ico-group-plus">게임추가</span></button>
+              </div>
+              <div class="group-mb-list scrollbar-thin">
+                <ul>
+                  <li>
+                    <p class="mb-tit">디아블로</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li class="choiced"><!-- 선택됨 -->
+                    <p class="mb-tit">디아블로2</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">디아블로3</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                  <li>
+                    <p class="mb-tit">디아블로2 리저렉션</p>
+                    <button class="btn--st btn-major">수정</button>
+                    <button class="btn--st btn-base">삭제</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--/.-->
+          </div>
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>DAU 통계<small>DAU Inquiry</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <h3 class="bold">DAU</h3>
+            </div>
+            <div class="tbl-top-right">
+              <select class="select--st" style="width: 200px;">
+                <option>개발사 전체</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+              <select class="select--st" style="width: 240px;">
+                <option>게임 전체</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+              <select class="select--st" style="width: 160px;">
+                <option>디바이스 전체</option>
+                <option>옵션</option>
+                <option>옵션</option>
+              </select>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+          </div>
+          <div class="db-graph">
+            <!-- 그래프 영역 -->
+          </div>
+
+
+          <div class="tbl-top mr-t4">
+            <div class="tbl-top-left">
+              <h3 class="bold">DAU 상세 정보</h3>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-mint"><span class="bt-ico-excel">엑셀 다운로드</span></button>
+            </div>
+          </div>
+          <div class="tbl-type--list">
+            <table class="">
+              <thead>
+                <tr>
+                  <th rowspan="2">시간</th>
+                  <th rowspan="2">Total</th>
+                  <th colspan="6">디바이스 별</th>
+                </tr>
+                <tr>
+                  <th>Android Phone</th>
+                  <th>iOS</th>
+                  <th>Windows</th>
+                  <th>MAC</th>
+                  <th>TV</th>
+                  <th>기가지니</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>YYYY.MM.DD 00:00</td>
+                  <td>5,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>1,000</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-box">
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+          </div><!--//.paging-box-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

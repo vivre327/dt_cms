@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <article class="join-page">
+
+      <h1 class="join-top-ci">GameBox 개발사 지원 관리 시스템</h1>
+      <div class="join-top-step">
+        <div class="step-two">회원 정보 입력 단계</div>
+      </div>
+
+      <div class="join-userinfo-box">
+
+        <div class="info-text-required">
+          <i class="ico-required"></i> 표시는 필수 입력 사항입니다.
+        </div>
+
+        <div>
+          <dl class="form-sheet">
+            <dt>아이디<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="아이디">
+              </div>
+              <p class="valid-message">사용 가능한 아이디 입니다.</p>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>비밀번호<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="password" class="input--st" placeholder="6~16자 이내의 영문, 숫자, 특수 문자 조합">
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>비밀번호 확인<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="password" class="input--st" placeholder="비밀번호 재입력">
+              </div>
+            </dd>
+          </dl>
+          
+          <i class="line-divide"></i>
+
+          <dl class="form-sheet">
+            <dt>사업자 등록번호<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="숫자만 입력">
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>개발사명<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="회사명 입력">
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>회사 주소<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="예) 불정로 90 , 종로3길">
+                <button type="button" class="btn--st btn-major input-after-btn">주소검색</button>
+              </div>
+            </dd>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="상세 주소 입력">
+              </div>
+            </dd>
+          </dl>
+
+          <i class="line-divide"></i>
+
+          <dl class="form-sheet">
+            <dt>담당자 이름<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="입력">
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>담당자 휴대폰<i class="ico-required"></i></dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="'-' 없이 입력">
+                <button type="button" class="btn--st btn-major input-after-btn">인증번호 요청</button>
+              </div>
+            </dd>
+            <dd>
+              <div>
+                <div class="input-auth-box">
+                  <input type="text" class="input--st" placeholder="인증번호 6자리">
+                  <span class="time-limit">03:00</span>
+                </div>
+                <button type="button" class="btn--st btn-major input-after-btn">인증확인</button>
+              </div>
+              <p class="valid-message">인증이 완료 되었습니다.</p>
+              <p class="valid-message color-red">인증번호를 정확하게 입력해주세요.</p>
+            </dd>
+          </dl>
+          <dl class="form-sheet">
+            <dt>담당자 이메일</dt>
+            <dd>
+              <div>
+                <input type="text" class="input--st" placeholder="이메일 주소">
+              </div>
+            </dd>
+          </dl>
+
+          <i class="line-divide"></i>
+
+          <div class="">
+            <label class="chk--st big">
+              <input type="checkbox" checked>
+              <span></span>
+            </label>
+            <span class="chk-out-text">만 14세 이상 입니다.</span>
+          </div>
+          
+        </div>
+
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base">취소</button>
+          <button type="button" class="btn--st btn-major">확인</button>
+        </div>
+      </div><!--/.join-userinfo-box-->
+
+    </article>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <figure class="footer-ci"><img src="../assets/images/common/logo_bottom.png" alt="gamebox" /></figure>
+        <div class="footer-info">
+          <p><span>업체명</span>(주)케이티</p>
+          <p><span>대표이사</span>구현모</p>
+          <p><span>주소</span>경기도 성남시 분당구 불정로 90 (정자동)</p>
+          <p><span>사업자등록번호</span>102-81-42945</p>
+          <p><span>통신판매업신고</span>2002-경기성남-0048</p>
+          <p><span>문의</span>국번없이 100(자사 이용 시, 무료), 1588-0010(타사 이용 시, 유료)</p>
+          <div class="copyright">Copyright&copy; 2020 kt corp. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

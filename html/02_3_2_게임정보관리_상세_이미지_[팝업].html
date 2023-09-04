@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+
+<body>
+
+  <div class="sample-btns">
+    <button class="sample" onclick="popOpen('#popPreviewImg01');">팝업 : 이미지 미리보기</button>
+    <br>
+    <button class="sample" onclick="popOpen('#popPreviewImg02');">팝업 : 이미지 미리보기</button>
+    <br>
+    <button class="sample" onclick="popOpen('#popPreviewImg03');">팝업 : 이미지 미리보기</button>
+    <br>
+    <button class="sample" onclick="popOpen('#popPreviewImg04');">팝업 : 이미지 미리보기</button>
+    <br>
+  </div> 
+
+
+  <!-- 팝업 : 이미지 미리보기 -->
+  <div class="popup-wrap" id="popPreviewImg01" style="display: none">
+    <div class="pop-preview">
+     <div class="pop-preview-inner">
+        <div class="pop-preview-title">
+          <h5>PC Web 홈화면 이미지</h5>
+          <button type="button" class="bt-px" onclick="popClose(this);">닫기</button>
+        </div>
+        <div class="popup-preview-img"  onclick="popClose(this);">
+          <img src="http://placehold.it/1920x540/ff0000" width="960px" height="260px">
+        </div>
+     </div>
+    </div>
+  </div>
+
+
+  
+  <!-- 팝업 : 이미지 미리보기 -->
+  <div class="popup-wrap" id="popPreviewImg02" style="display: block">
+    <div class="pop-preview">
+      <div class="pop-preview-inner">
+        <div class="pop-preview-title">
+          <h5>홈(가로)이미지</h5>
+          <button type="button" class="bt-px" onclick="popClose(this);">닫기</button>
+        </div>
+        <div class="popup-preview-img" onclick="popClose(this);">
+          <img src="http://placehold.it/1920X910/ffff00" width="960px" height="455px">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- 팝업 : 이미지 미리보기 -->
+  <div class="popup-wrap" id="popPreviewImg03" style="display: none">
+    <div class="pop-preview">
+      <div class="pop-preview-inner">
+        <div class="pop-preview-title">
+          <h5>홈(세로)이미지</h5>
+          <button type="button" class="bt-px" onclick="popClose(this);">닫기</button>
+        </div>
+        <div class="popup-preview-img" onclick="popClose(this);">
+          <img src="http://placehold.it/696X1024/ffff00" width="348px" height="512px">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- 팝업 : 이미지 미리보기 -->
+  <div class="popup-wrap" id="popPreviewImg04" style="display: none">
+    <div class="pop-preview">
+      <div class="pop-preview-inner">
+        <div class="pop-preview-title">
+          <h5>로고 이미지</h5>
+          <button type="button" class="bt-px" onclick="popClose(this);">닫기</button>
+        </div>
+        <div class="popup-preview-img" onclick="popClose(this);">
+          <img src="http://placehold.it/336x336/000000" width="336px" height="336px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>

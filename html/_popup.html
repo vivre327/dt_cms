@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script>
+    // popup
+    function popOpen (_this) {
+      var _this = $(_this);
+      _this.show();
+      // if( $('.pop-long').is(':visible') ){ 
+      //   $('body').addClass('scroll-hidden');  
+      // } 
+      $('body').addClass('scroll-hidden');  
+    }
+    function popClose (_this) {
+      var _this = $(_this);
+      _this.parents('.popup-wrap').hide();
+      // if( $('.pop-long').is(':visible') == false){ 
+      //   $('body').removeClass('scroll-hidden');  
+      // }
+      $('body').removeClass('scroll-hidden');  
+    }
+  </script>
+  <style>
+    .scroll-hidden{ overflow: hidden;}
+  </style>
+</head>
+<body>
+      <div style="height: 1000px;"></div>
+ 
+      <button class="sample" onclick="popOpen('#popS1');">팝업1 : 버튼 하나</button>
+      <button class="sample" onclick="popOpen('#popS2');">팝업2 : 버튼 둘</button>
+      <button class="sample" onclick="popOpen('#popM2');">팝업3 : 제목</button>
+      <button class="sample" onclick="popOpen('#popL');">팝업4 : 제목</button>
+      <button class="sample" onclick="popOpen('#popXL');">팝업5 : 내용긴팝업</button>
+      <button class="sample" onclick="popOpen('#popM');">팝업6 : 팝업안스크롤, 버튼고정</button>
+
+  
+  <!--팝업: 1 버튼 1개 -->
+  <div class="popup-wrap" id="popS1" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-tit">큰제목</p>
+        <p class="pop-txt">텍스트입니다.</p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--팝업: 2 버튼이 2개 -->
+  <div class="popup-wrap" id="popS2" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          그룹 삭제 시 해당 그룹 하위의 모든 게임 정보도
+          모두 삭제됩니다.<br>
+          해당 게임 그룹을 삭제하시겠습니까?</p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--팝업: 3 제목있는 중간크기 팝업 -->
+  <div class="popup-wrap" id="popM2" style="display: none">
+    <div class="popup pop-size-m">
+      <div class="pop-head">
+        <h2 class="pop-title">팝업 제목</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <p class="pop-txt">텍스트입니다.</p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popS4')">이중팝업</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--팝업: 4 제목있는 큰팝업 -->
+  <div class="popup-wrap" id="popL" style="display: none">
+    <div class="popup pop-size-l">
+      <div class="pop-head">
+        <h2 class="pop-title">팝업 제목</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <p class="pop-txt">텍스트입니다.</p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popS4-1')">이중팝업</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  <!--팝업: 4-1 팝업위팝업 .pop-z1 -->
+  <div class="popup-wrap pop-z1" id="popS4-1" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-tit">확인</p>
+        <p class="pop-txt">저장되었습니다.</p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--팝업: 5 body가 스크롤 .pop-long -->
+  <div class="popup-wrap pop-long" id="popXL" style="display: none">
+    <div class="popup pop-size-xl">
+      <div class="pop-head">
+        <h2 class="pop-title">팝업 제목</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="" style="height: 1700px; background-color:#eee;"></div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--팝업: 6 팝업내 스크롤 -->
+  <div class="popup-wrap pop-body-scroll" id="popM" style="display: none">
+    <div class="popup pop-size-m">
+      <div class="pop-head">
+        <h2 class="pop-title">팝업 제목</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="" style="height: 700px; background-color:pink;"></div>
+      </div>
+      <div class="pop-foot">
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    button.sample{padding:10px;}
+  </style>
+
+</body>
+</html>

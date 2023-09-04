@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>공지사항<small>Notice</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left self-end">
+              <span class="t-txt">게시물 전체</span>
+              <span class="t-total"><b>20</b></span>
+            </div>
+            <div class="tbl-top-right">
+              <select class="select--st">
+                <option>전체</option>
+                <option>옵션1</option>
+                <option>옵션2</option>
+              </select>
+              <div class="input-search-wrap">
+                <input type="text" placeholder="검색어 입력">
+                <button class="bt-ico-search"><span class="bt-ico-plus">검색버튼</span></button>
+              </div>
+              <button class="btn--st btn-major mr-l4"><span class="bt-ico-plus">게시물 등록</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-type--list">
+            <table class="tbl-ellipsis tbl-hover-bg">
+              <caption></caption>
+              <colgroup>
+                <col style="width:auto">
+                <col style="width:180px">
+                <col style="width:180px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>제목</th>
+                  <th>등록일</th>
+                  <th>조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-notice">
+                  <td class="td-left">
+                    <p class="ico-notice">사용자 매뉴얼 업로드 안내</p>
+                  </td>
+                  <td>2022-01-31</td>
+                  <td>5</td>
+                </tr>
+                <tr class="tr-notice">
+                  <td class="td-left">
+                    <p class="ico-notice">서비스 안정화를 위한 임시 점검 안내</p>
+                  </td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr class="tr-notice">
+                  <td class="td-left">
+                    <p class="ico-notice">서비스 안정화를 위한 임시 점검 안내</p>
+                  </td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">공지사항 제목 출력</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">금주 업데이트 안내</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">공지사항 제목 출력</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">금주 업데이트 안내</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">공지사항 제목 출력</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">금주 업데이트 안내</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td class="td-left">공지사항 제목 출력</td>
+                  <td>2022-01-31</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-box">
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+          </div><!--//.paging-box-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

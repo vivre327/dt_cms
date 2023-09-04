@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>게임 정보 등록<small>Game Infomation Registration</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="info-text-required"> <i class="ico-required"></i> 표시는 필수 입력 사항입니다.</div>
+          <div class="tbl-form-title">
+            <h3>게임 기본 정보</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>         
+                <tr>
+                  <th>
+                    <label>게임 아이디</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <input type="text" class="input--st" placeholder="게임 아이디">
+                      <button class="btn--st btn-major input-after-btn">중복체크</button>
+                      <p class="valid-message color-red">사용 불가능한 게임 ID 입니다.</p>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임&#47;서브타이틀</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv2">
+                      <script defer src="../assets/js/sample-datalist-2.js"></script>
+                      <div class="datalist-wrap" id="datalist2">
+                        <input class="datalist-input" id="datalist-input2" type="text" placeholder="게임 선택">
+                        <i class="icon-arrow" id="datalist-icon2"></i>
+                        <ul class="datalist-ul scrollbar-thin" id="datalist-ul2"></ul>
+                      </div>
+                      <i class="i-middle-slash"></i>
+                      <input type="text" class="input--st" placeholder="서브타이틀 입력">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>버전</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" style="width:320px" placeholder="">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tbl-type--form mr-t1">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>배급사</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st">
+                    </div>
+                  </td>
+                  <th>
+                    <label>게임 출시일</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <div class="calendar-input-wrap">
+                        <input type="text" name="typeDate" class="input--st" id="gameDateOpen">
+                        <!-- daterangepicker.js -->
+                        <label class="ico-calendar" for="gameDateOpen">달력버튼</label>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>저작권 문구</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <textarea name="" class="textarea--st" id="" rows="4"></textarea>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="tbl-form-title">
+            <h3>게임 이미지 등록</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:160px">
+                <col style="width:160px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th class="text-center" colspan="2">
+                    <label>게임이미지</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div class="st--tdv1">
+                      <div class="file-input-wrap">
+                        <input type="text" class="input--st input-file-text" id="fileValh01"
+                          placeholder="첨부파일 등록" readonly>
+                        <input type="file" id="fileBtnh01"
+                          onchange="javascript:document.getElementById('fileValh01').value = this.value;">
+                        <label for="fileBtnh01" class="btn-file-upload btn--st btn-major input-after-btn">파일찾기</label>
+                      </div>
+                      <button class="btn--st btn-sub input-after-btn">이미지 규격보기</button>
+                    </div>
+                    <p class="t-tex">zip 파일만 첨부가 가능합니다.  최대 업로드 용량은 100MB 입니다.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-form-title">
+            <h3>게임 이미지 등록</h3>
+          </div>
+          <div class="tbl-type--form">
+            <table>
+              <colgroup>
+                <col style="width:320px">
+                <col style="width:auto">
+                <col style="width:320px">
+                <col style="width:auto">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>
+                    <label>게임설명</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <textarea name="" class="textarea--st" id="" rows="4"></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>수상이력</label>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <textarea name="" class="textarea--st" id="" rows="4"></textarea>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>지원언어</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <input type="text" class="input--st" placeholder="예) 한국어 / 영어">
+                    </div>
+                  </td>
+                  <th>
+                    <label>한글 지원</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td>
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportKorean" checked>
+                            <span class="chk-in-text">지원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportKorean">
+                            <span class="chk-in-text">미지원</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>멀티플레이 지원</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportMulti" checked>
+                            <span class="chk-in-text">지원</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioSupportMulti">
+                            <span class="chk-in-text">미지원</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>이용연령</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge" checked>
+                            <span class="chk-in-text">전체이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge">
+                            <span class="chk-in-text">12세 이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge">
+                            <span class="chk-in-text">15세이용가</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="rad--st">
+                            <input type="radio" id="" name="radioPossibleAge">
+                            <span class="chk-in-text">청소년 이용불가</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>내용 정보</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <ul class="chk-inline-wrap">
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" checked>
+                            <span class="chk-in-text">폭력성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">공포</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">약물</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="" checked>
+                            <span class="chk-in-text">범죄</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">선정성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">사행성</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="chk--st">
+                            <input type="checkbox" id="" name="" value="">
+                            <span class="chk-in-text">언어의 부적절성</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>게임장르</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <input type="text" class="input--st"
+                        placeholder="예) 액션 / 어드벤쳐 / FPS / 슈팅 / 인디 / 캐쥬얼 / 스포츠 / 레이싱 / 대전 / 전략시뮬레이션">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <label>검색 키워드</label>
+                    <i class="ico-required"></i>
+                  </th>
+                  <td colspan="3">
+                    <div>
+                      <input type="text" class="input--st"
+                        placeholder="예) 액션 / 어드벤쳐 / FPS / 슈팅 / 인디 / 캐쥬얼 / 스포츠 / 레이싱 / 대전 / 전략시뮬레이션">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tbl-bottom-btns">
+            <button class="btn--st btn-base">취소</button>
+            <button class="btn--st btn-major">등록</button>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+
+</body>
+
+</html>
