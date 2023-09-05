@@ -42,6 +42,12 @@
     <br>
     <button class="sample" onclick="popOpen('#popProductEdit');">팝업 : 주문내역 수정 </button>
     <br>
+    <button class="sample" onclick="popOpen('#popShipEdit');">팝업 : 배송정보 수정 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popCancelDetails');">팝업 : 취소요청 상세 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popCompanionRegister');">팝업 : 반려사유 선택 </button>
+    <br>
   </div>
 
 
@@ -130,12 +136,41 @@
         </div>
         <div class="pop-btns">
           <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
-          <button type="button" class="btn--st btn-major">승인</button>
-          <button type="button" class="btn--st btn-sub">반려</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popProductConfirm');">승인</button>
+          <button type="button" class="btn--st btn-sub" onclick="popOpen('#popCompanionRegister');">반려</button>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- _confirm -->
+  <div class="popup-wrap pop-z1" id="popProductConfirm" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">주문 승인처리  하시겠습니까?
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popDetailsAlert');">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert -->
+  <div class="popup-wrap pop-z1" id="popDetailsAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          승인 처리되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <!-- 팝업 : 주문내역 수정  -->
@@ -232,7 +267,292 @@
         </div>
         <div class="pop-btns">
           <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
-          <button type="button" class="btn--st btn-major">수정</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popEditAlert');">수정</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert -->
+  <div class="popup-wrap pop-z1" id="popEditAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          수정 완료되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 팝업 : 배송정보 수정  -->
+  <div class="popup-wrap" id="popShipEdit" style="display:none">
+    <div class="popup pop-size-xl">
+      <div class="pop-head">
+        <h2 class="pop-title">배송 정보수정</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="pop-form-title">
+          <h3>배송 정보</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>
+                  <label>수취인명</label>
+                  <i class="ico-required"></i>
+                </th>
+                <td>
+                  <div>
+                    <input type="text" value="홍길동" class="input--st" style="width:320px" placeholder="">
+                  </div>
+                </td>
+                <th>
+                  <label>연락처</label>
+                  <i class="ico-required"></i>
+                </th>
+                <td>
+                  <div>
+                    <input type="text" value="010-1234-5687" class="input--st" style="width:320px" placeholder="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label>배송지</label>
+                  <i class="ico-required"></i>
+                </th>
+                <td colspan="3">
+                  <div>
+                    <input type="text" value="서울시 서초구 서운로 220" class="input--st">
+                    <button type="button" class="btn--st btn-major input-after-btn">주소검색</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>배송메모</th>
+                <td colspan="3">부재시 문 앞에 놓아주세요</td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="">배송상태</label>
+                </th>
+                <td colspan="3">
+                  <select class="select--st" style="width: 200px">
+                    <option selected>배송대기</option>
+                    <option>배송중</option>
+                    <option>배송지연</option>
+                    <option>배송완료</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="">택배사</label>
+                </th>
+                <td>
+                  <select class="select--st" style="width: 200px">
+                    <option selected>택배사1</option>
+                    <option>택배사2</option>
+                  </select>
+                </td>
+                <th>
+                  <label for="">운송장번호</label>
+                </th>
+                <td>
+                  <div>
+                    <input type="text" class="input--st" style="width:320px" placeholder="">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popShipAlert');">수정</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert -->
+  <div class="popup-wrap pop-z1" id="popShipAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          수정 완료되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 팝업 : 취소요청 상세  -->
+  <div class="popup-wrap" id="popCancelDetails" style="display:none">
+    <div class="popup pop-size-xl">
+      <div class="pop-head">
+        <h2 class="pop-title">취소 요청 상세</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="pop-form-title">
+          <h3>주문상세정보</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>주문번호</th>
+                <td colspan="3">230605-005712</td>
+              </tr>
+              <tr>
+                <th>상품명</th>
+                <td colspan="3">TYPE01 폴로셔츠</td>
+              </tr>
+              <tr>
+                <th>주문상태</th>
+                <td>취소요청</td>
+                <th>결제일자</th>
+                <td>2023.06.07</td>
+              </tr>
+              <tr>
+                <th>취소 사유</th>
+                <td>&nbsp;</td>
+                <th>취소요청일자</th>
+                <td>2023.06.07</td>
+              </tr>
+              <tr>
+                <th>주문자명</th>
+                <td>홍길동</td>
+                <th>주문자 ID</th>
+                <td>Hong22</td>
+              </tr>
+              <tr>
+                <th>상품 옵션</th>
+                <td>Free</td>
+                <th>주문수량</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>결제 수단</th>
+                <td>현대카드</td>
+                <th>총 결제금액</th>
+                <td>139,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-form-title">
+          <h3 class="pop-sub-title">승인 여부</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              
+              <tr>
+                <th>승인 여부</th>
+                <td></td>
+                <th>결제일자</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>반려사유</th>
+                <td colspan="3"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popCancelConfirm');">취소승인</button>
+          <button type="button" class="btn--st btn-sub" onclick="popOpen('#popCompanionRegister');">반려</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _confirm -->
+  <div class="popup-wrap pop-z1" id="popCancelConfirm" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">취소 승인처리  하시겠습니까?
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popCancelAlert');">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert -->
+  <div class="popup-wrap pop-z1" id="popCancelAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          주문 취소 처리되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 팝업 : 반려사유 선택  -->
+  <div class="popup-wrap" id="popCompanionRegister" style="display: none">
+    <div class="popup pop-size-l">
+      <div class="pop-head">
+        <h2 class="pop-title">반려</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <dl class="form-sheet">
+          <dd>
+            <div>
+              <select class="select--st">
+                <option>반려사유 선택</option>
+                <option>재고 부족으로 인한 주문취소 처리</option>
+                <option>상품 배송 처리로 인한 주문취소 불가</option>
+              </select>
+            </div>
+          </dd>
+          <dd>
+            <div>
+              <textarea id="" rows="5" class="textarea--st" placeholder=""></textarea>
+            </div>
+          </dd>
+        </dl>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popAlert');">반려</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert -->
+  <div class="popup-wrap pop-z1" id="popAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          반려 처리되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
         </div>
       </div>
     </div>

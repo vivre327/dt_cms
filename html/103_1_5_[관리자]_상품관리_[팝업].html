@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -33,18 +34,97 @@
   <link rel="stylesheet" href="../assets/css/style-ui.css">
   <script defer src="../assets/js/style-ui.js"></script>
 </head>
+
 <body>
 
   <div class="sample-btns">
-    <!-- <button class="sample" onclick="popOpen('#popMilestoneRegister');">팝업 : 등록</button>
+    <button class="sample" onclick="popOpen('#popDeleteConfirm');">팝업 : 삭제 확인 </button>
     <br>
-    <button class="sample" onclick="popOpen('#popMilestoneDetails');">팝업 : 상세 </button>
+    <button class="sample" onclick="popOpen('#popDeleteAlert');">팝업 : 삭제 완료 </button>
     <br>
-    <button class="sample" onclick="popOpen('#popMilestoneCom');">팝업 : 확인</button>
-    <br> -->
-  </div> 
+    <button class="sample" onclick="popOpen('#popDeleteAlert2');">팝업 : 삭제 실패 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popEditConfirm');">팝업 : 수정 확인 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popEditAlert');">팝업 : 수정 완료 </button>
+    <br>
+  </div>
+
+
+  <!-- 삭제:confirm -->
+  <div class="popup-wrap pop-z1" id="popDeleteConfirm" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">해당 상품을 삭제하시겠습니까?
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popDeleteAlert');">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert 완료 -->
+  <div class="popup-wrap pop-z1" id="popDeleteAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          상품이 삭제 되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert 실패 -->
+  <div class="popup-wrap pop-z1" id="popDeleteAlert2" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          주문 건이 존재하여 삭제 할 수 없습니다.
+          <br>
+          판매 상태를 변경해주세요.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 수정:confirm -->
+  <div class="popup-wrap pop-z1" id="popEditConfirm" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">상품 정보를 수정 하시겠습니까?
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major" onclick="popOpen('#popEditAlert');">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- _Alert 완료 -->
+  <div class="popup-wrap pop-z1" id="popEditAlert" style="display: none">
+    <div class="popup pop-size-s">
+      <div class="pop-body">
+        <p class="pop-txt">
+          수정 완료되었습니다.
+        </p>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-major" onclick="popClose(this);">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>
-</html>
 
+</html>

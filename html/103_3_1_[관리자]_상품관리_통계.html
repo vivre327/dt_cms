@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/a6eb0217d4.js" crossorigin="anonymous"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>통계<small>Statics</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+
+          <div class="db-item-top space-between">
+            <h3></h3>
+            <p class="s-period"><i class="far fa-calendar-check"></i><b>2023.09.05</b>(당일) 기준</p>
+          </div>
+          <div class="statics-overview">
+            <div class="overview-box">
+              <i class="ico-overview orange"><i class="far fa-clipboard"></i></i>
+              <dl>
+                <dt>전체 주문</dt>
+                <dd><b class="count">53</b>건</dd>
+              </dl>
+            </div>
+            <div class="overview-box">
+              <p class="ico-overview green"><i class="far fa-check-square"></i></p>
+              <dl>
+                <dt>거래 완료</dt>
+                <dd><b class="count">51</b>건</dd>
+              </dl>
+            </div>
+            <div class="overview-box">
+              <p class="ico-overview red"><i class="fas fa-times"></i></p>
+              <dl>
+                <dt>주문 취소</dt>
+                <dd><b class="count">2</b>건</dd>
+              </dl>
+            </div>
+            <div class="overview-box">
+              <i class="ico-overview blue"><i class="far fa-credit-card"></i></i>
+              <dl>
+                <dt>결제 금액</dt>
+                <dd><b class="count">8,714,000</b>원</dd>
+              </dl>
+            </div>
+            <div class="overview-box">
+              <i class="ico-overview purple"><i class="fas fa-coins"></i></i>
+              <dl>
+                <dt>매출 금액</dt>
+                <dd><b class="count">8,514,000</b>원</dd>
+              </dl>
+            </div>
+          </div>
+
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+            </div>
+            <div class="tbl-top-right flex-end">
+              <div class="graph-category">
+                <a class="btn active">일간</a>
+                <a class="btn">주간</a>
+                <a class="btn">월간</a>
+              </div>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+            </div>
+          </div>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <h3 class="bold">주문 금액 통계</h3>
+            </div>
+            <div class="tbl-top-right">
+              <div class="legend-st-list">
+                <label><i class="bar" style="background-color: #724bf4"></i>매출금액</label>
+                <label><i style="background-color: #4fb7f8"></i>결제금액</label>
+                <label><i style="background-color: #ff4a38"></i>취소금액</label>
+            </div>
+            </div>
+          </div>
+          <div class="db-graph">
+            <!-- 그래프 영역 -->
+          </div>
+
+
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <h3 class="bold">주문 건수 통계</h3>
+            </div>
+            <div class="tbl-top-right">
+              <div class="legend-st-list">
+                <label><i class="bar" style="background-color: #fe8d38"></i>전체주문</label>
+                <label><i style="background-color: #00d08b"></i>거래완료</label>
+                <label><i style="background-color: #ff4a38"></i>주문취소</label>
+              </div>
+            </div>
+          </div>
+          <div class="db-graph">
+            <!-- 그래프 영역 -->
+          </div>
+
+
+          <div class="tbl-top mr-t4">
+            <div class="tbl-top-left">
+              <h3 class="bold">통계 상세정보
+              </h3>
+            </div>
+            <div class="tbl-top-right">
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+              </div>
+              <i class="i-middle-wave"></i>
+              <div class="calendar-input-wrap">
+                <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+              </div>
+              <button class="btn--st btn-major bt-tbl-top-search"><span class="bt-ico-search">검색</span></button>
+              <button class="btn--st btn-sub"><span class="bt-ico-excel">엑셀 다운로드</span></button>
+            </div>
+          </div>
+          <div class="tbl-type--list">
+            <table class="">
+              <thead>
+                <tr>
+                  <th rowspan="2">날짜</th>
+                  <th colspan="3">주문 금액</th>
+                  <th colspan="3">주문건수</th>
+                </tr>
+                <tr>
+                  <th>매출금액</th>
+                  <th>결제금액</th>
+                  <th>취소금액</th>
+                  <th>전체 주문</th>
+                  <th>거래완료</th>
+                  <th>주문 취소</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <th>2023.06.12</th>
+                  <td>810,000</td>
+                  <td>810,000</td>
+                  <td>0</td>
+                  <td>8</td>
+                  <td>8</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <th>2023.06.11</th>
+                  <td>502,000</td>
+                  <td>502,000</td>
+                  <td>0</td>
+                  <td>5</td>
+                  <td>5</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="paging-box">
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+          </div><!--//.paging-box-->
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>
