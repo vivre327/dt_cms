@@ -186,3 +186,111 @@ $('.input-search-wrap > input').focus(function(){
     $(this).closest('.input-search-wrap').removeClass('focus-border');
   }
 );
+
+// 옵션여부 2023-09-04
+$(document).ready(function(){
+  $(".form-check input[type='radio']").on("change", function() {
+    // Regardless of WHICH radio was clicked, is the
+    //  showSelect radio active?
+    if ($("#showSelect").is(':checked')) {
+      $('.option-div').removeClass("hidden");
+    } else {
+      $('.option-div').addClass("hidden");
+    }
+  })
+});
+
+// 옵션 행 추가 2023-09-04
+function add_tr(table_id) {//행 추가
+  let table_body = document.getElementById(table_id);
+  let first_tr   = table_body.firstElementChild;
+  let tr_clone   = first_tr.cloneNode(true);//*1)복제된 node 반환
+
+  table_body.append(tr_clone);
+  clean_first_tr(table_body.firstElementChild);
+}
+
+function clean_first_tr(firstTr) {//값 초기화
+  let children = firstTr.children;//*2) 자식 요소가 포함된 HTMLCollection을 반환
+  
+  children = Array.isArray(children) ? children : Object.values(children);//*3)
+  children.forEach(x=>{
+      if(x !== firstTr.lastElementChild){//마지막child가 아닐때
+          x.firstElementChild.value = '';//td의 첫번째 child > input값 초기화
+      }
+  });
+}
+
+function remove_tr(This) {//행 삭제
+  //*4)closet:현재 엘리멘트에서 가장 가까운 조상을 반환
+  if(This.closest('tbody').childElementCount == 1)
+  {
+      alert("삭제할 수 없습니다.");
+  }else{
+      This.closest('tr').remove();//삭제
+  }
+}
+
+// Byte 수 체크 제한
+function fnChkByte(obj, maxByte)
+{
+    var str = obj.value;
+    var str_len = str.length;
+
+
+    var rbyte = 0;
+    var rlen = 0;
+    var one_char = "";
+    var str2 = "";
+
+
+    for(var i=0; i<str_len; i++)
+    {
+        one_char = str.charAt(i);
+        if(escape(one_char).length > 4) {
+            rbyte += 2;                                         //한글2Byte
+        }else{
+            rbyte++;                                            //영문 등 나머지 1Byte
+        }
+        if(rbyte <= maxByte){
+            rlen = i+1;                                          //return할 문자열 갯수
+        }
+     }
+     if(rbyte > maxByte)
+     {
+        // alert("한글 "+(maxByte/2)+"자 / 영문 "+maxByte+"자를 초과 입력할 수 없습니다.");
+        alert("메세지는 최대 " + maxByte + "byte를 초과할 수 없습니다.")
+        str2 = str.substr(0,rlen);                                  //문자열 자르기
+        obj.value = str2;
+        fnChkByte(obj, maxByte);
+     }
+     else
+     {
+        document.getElementById('byteInfo').innerText = rbyte;
+     }
+}
+
+// tab
+const tabList = document.querySelectorAll('.tab-contents .list li');
+const contents = document.querySelectorAll('.tab-contents .cont')
+let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+
+for(var i = 0; i < tabList.length; i++){
+  tabList[i].querySelector('.btn').addEventListener('click', function(e){
+    e.preventDefault();
+    for(var j = 0; j < tabList.length; j++){
+      // 나머지 버튼 클래스 제거
+      tabList[j].classList.remove('is_on');
+
+      // 나머지 컨텐츠 display:none 처리
+      contents[j].style.display = 'none';
+    }
+
+    // 버튼 관련 이벤트
+    this.parentNode.classList.add('is_on');
+
+    // 버튼 클릭시 컨텐츠 전환
+    activeCont = this.getAttribute('href');
+    document.querySelector(activeCont).style.display = 'block';
+  });
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>상품 관리<small>Product Manager</small></h2>
+        </div>
+      </div>
+      <div class="contents">
+        <article>
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <div class="tbl-top-left">
+                <div class="calendar-input-wrap">
+                  <input type="text" name="typeDate" class="input--st" id="DateSortStart">
+                  <label class="ico-calendar" for="DateSortStart">달력버튼</label>
+                </div>
+                <i class="i-middle-wave"></i>
+                <div class="calendar-input-wrap">
+                  <input type="text" name="typeDate" class="input--st" id="DateSortEnd">
+                  <label class="ico-calendar" for="DateSortEnd">달력버튼</label>
+                </div>
+              </div>
+            </div>
+            <div class="tbl-top-right">
+              <select class="select--st" style="width: 200px">
+                <option>카테고리</option>
+                <option>카테고리 1</option>
+                <option>카테고리 2</option>
+              </select>
+              <select class="select--st" style="width: 200px">
+                <option>판매 상태</option>
+                <option>판매 중단</option>
+                <option>판매 중</option>
+                <option>판매 예정</option>
+              </select>
+              <div class="input-search-wrap">
+                <input type="text" placeholder="상품명, 상세코드 검색">
+                <button class="bt-ico-search"><span class="bt-ico-plus">검색버튼</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="tbl-top">
+            <div class="tbl-top-left self-end center">
+              <span class="t-txt">총</span>
+              <span class="t-total"><b>100</b><b>건</b></span>
+            </div>
+            <div class="tbl-top-right">
+              <button class="btn--st btn-major"><span class="bt-ico-plus">상품등록</span></button>
+              <button class="btn--st btn-major"><span class="bt-ico-plus">상품일괄등록</span></button>
+            </div>
+          </div>
+
+          <div class="tbl-type--list check-all-group">
+            <table class="tbl-hover-bg ">
+              <caption></caption>
+              <colgroup>
+                <col width="6%">
+                <col width="*">
+                <col width="*">
+                <col width="26%">
+                <col width="*">
+                <col width="10%">
+                <col width="12%">
+                <col width="12%">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>상품코드</th>
+                  <th>카테고리</th>
+                  <th>상품명</th>
+                  <th>판매가격</th>
+                  <th>판매상태</th>
+                  <th>등록일</th>
+                  <th>변경일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100</td>
+                  <td>5712</td>
+                  <td>의류</td>
+                  <td>TYPE01 맨투맨</td>
+                  <td>68,000</td>
+                  <td>판매 중단</td>
+                  <td>2023.06.01</td>
+                  <td>2023.05.27</td>
+                </tr>
+                <tr>
+                  <td>99</td>
+                  <td>5711</td>
+                  <td>의류</td>
+                  <td>TYPE02 맨투맨</td>
+                  <td>42,000</td>
+                  <td>판매 중단</td>
+                  <td>2023.06.01</td>
+                  <td>2023.05.08</td>
+                </tr>
+                <tr>
+                  <td>98</td>
+                  <td>5710</td>
+                  <td>의류</td>
+                  <td>TYPE01 맨투맨</td>
+                  <td>68,000</td>
+                  <td>판매 중단</td>
+                  <td>2022.10.24</td>
+                  <td>2023.05.01</td>
+                </tr>
+                <tr>
+                  <td>97</td>
+                  <td>100472</td>
+                  <td>잡화</td>
+                  <td>TYPE07 농구공</td>
+                  <td>36,000</td>
+                  <td>판매 중</td>
+                  <td>2022.08.11</td>
+                  <td>2023.04.03</td>
+                </tr>
+                <tr>
+                  <td>96</td>
+                  <td>100471</td>
+                  <td>잡화</td>
+                  <td>TYPE07 농구공</td>
+                  <td>36,000</td>
+                  <td>판매 중</td>
+                  <td>2022.06.07</td>
+                  <td>2023.01.15</td>
+                </tr>
+                <tr>
+                  <td>95</td>
+                  <td>100470</td>
+                  <td>잡화</td>
+                  <td>TYPE07 농구공</td>
+                  <td>36,000</td>
+                  <td>판매 예정</td>
+                  <td>2022.03.02</td>
+                  <td>2023.01.02</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div class="paging-box">
+            <div class="paging-box-center">
+              <div class="paging">
+                <a href="#" class="btn-first"></a>
+                <a href="#" class="btn-prev"></a>
+                <a href="#" class="active-page">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#" class="btn-next"></a>
+                <a href="#" class="btn-last"></a>
+              </div>
+            </div>
+          </div><!--//.paging-box-->
+
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>

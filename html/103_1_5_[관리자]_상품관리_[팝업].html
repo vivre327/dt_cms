@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        autoApply: true, //버튼삭제 
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+
+  <div class="sample-btns">
+    <!-- <button class="sample" onclick="popOpen('#popMilestoneRegister');">팝업 : 등록</button>
+    <br>
+    <button class="sample" onclick="popOpen('#popMilestoneDetails');">팝업 : 상세 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popMilestoneCom');">팝업 : 확인</button>
+    <br> -->
+  </div> 
+
+
+</body>
+</html>
+

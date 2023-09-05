@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        autoApply: true, //버튼삭제 
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+
+<body>
+
+  <div class="sample-btns">
+    <button class="sample" onclick="popOpen('#popProductDetails');">팝업 : 주문내역 상세 </button>
+    <br>
+    <button class="sample" onclick="popOpen('#popProductEdit');">팝업 : 주문내역 수정 </button>
+    <br>
+  </div>
+
+
+  <!-- 팝업 : 주문내역 상세  -->
+  <div class="popup-wrap" id="popProductDetails" style="display:none">
+    <div class="popup pop-size-xl">
+      <div class="pop-head">
+        <h2 class="pop-title">주문내역 정보상세</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="pop-form-title">
+          <h3>주문상세정보</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>주문번호</th>
+                <td colspan="3">230605-005712</td>
+              </tr>
+              <tr>
+                <th>상품명</th>
+                <td colspan="3">TYPE01 폴로셔츠</td>
+              </tr>
+              <tr>
+                <th>주문상태</th>
+                <td>결제완료</td>
+                <th>결제일자</th>
+                <td>2023.06.07</td>
+              </tr>
+              <tr>
+                <th>주문자명</th>
+                <td>홍길동</td>
+                <th>주문자 ID</th>
+                <td>Hong22</td>
+              </tr>
+              <tr>
+                <th>상품 옵션</th>
+                <td>Free</td>
+                <th>주문수량</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>결제 수단</th>
+                <td>현대카드</td>
+                <th>총 결제금액</th>
+                <td>139,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-form-title">
+          <h3 class="pop-sub-title">배송 정보</h3>
+          <button type="button" class="btn--st btn-major">수정</button>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>수취인명</th>
+                <td>홍길동</td>
+                <th>연락처</th>
+                <td>010-1234-5678</td>
+              </tr>
+              <tr>
+                <th>배송지</th>
+                <td colspan="3">서울시 서초구 서운로 220</td>
+              </tr>
+              <tr>
+                <th>배송메모</th>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+              <tr>
+                <th>배송상태</th>
+                <td colspan="3">배송대기</td>
+              </tr>
+              <tr>
+                <th>택배사</th>
+                <td>&nbsp;</td>
+                <th>운송장번호</th>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major">승인</button>
+          <button type="button" class="btn--st btn-sub">반려</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 팝업 : 주문내역 수정  -->
+  <div class="popup-wrap" id="popProductEdit" style="display:none">
+    <div class="popup pop-size-xl">
+      <div class="pop-head">
+        <h2 class="pop-title">주문내역 정보수정</h2>
+        <button type="button" class="pop-btn-x" onclick="popClose(this);"></button>
+      </div>
+      <div class="pop-body">
+        <div class="pop-form-title">
+          <h3>주문상세정보</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>주문번호</th>
+                <td colspan="3">230605-005712</td>
+              </tr>
+              <tr>
+                <th>상품명</th>
+                <td colspan="3">TYPE01 폴로셔츠</td>
+              </tr>
+              <tr>
+                <th>주문상태</th>
+                <td>
+                  <select class="select--st" style="width: 200px">
+                    <option>주문 상태</option>
+                    <option>결제완료</option>
+                    <option selected>상품준비중</option>
+                    <option>배송중</option>
+                    <option>거래완료</option>
+                    <option>취소요청</option>
+                    <option>주문취소</option>
+                  </select>
+                </td>
+                <th>결제일자</th>
+                <td>2023.06.07</td>
+              </tr>
+              <tr>
+                <th>주문자명</th>
+                <td>홍길동</td>
+                <th>주문자 ID</th>
+                <td>Hong22</td>
+              </tr>
+              <tr>
+                <th>상품 옵션</th>
+                <td>Free</td>
+                <th>주문수량</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>결제 수단</th>
+                <td>현대카드</td>
+                <th>총 결제금액</th>
+                <td>139,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-form-title">
+          <h3 class="pop-sub-title">배송 정보</h3>
+        </div>
+        <div class="tbl-type--form pop-order-tbl">
+          <table class="">
+            <tbody>
+              <tr>
+                <th>수취인명</th>
+                <td>홍길동</td>
+                <th>연락처</th>
+                <td>010-1234-5678</td>
+              </tr>
+              <tr>
+                <th>배송지</th>
+                <td colspan="3">서울시 서초구 서운로 220</td>
+              </tr>
+              <tr>
+                <th>배송메모</th>
+                <td colspan="3">부재시 문 앞에 놓아주세요</td>
+              </tr>
+              <tr>
+                <th>배송상태</th>
+                <td colspan="3">배송대기</td>
+              </tr>
+              <tr>
+                <th>택배사</th>
+                <td>&nbsp;</td>
+                <th>운송장번호</th>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pop-btns">
+          <button type="button" class="btn--st btn-base" onclick="popClose(this);">취소</button>
+          <button type="button" class="btn--st btn-major">수정</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
