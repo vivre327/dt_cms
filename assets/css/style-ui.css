@@ -4423,6 +4423,7 @@ table.odd-bg tbody tr:nth-child(odd) td {
   text-align: left;
 }
 .overview-box dl dt {
+  margin-bottom: 4px;
   font-size: 14px;
   color: #656b79;
 }
