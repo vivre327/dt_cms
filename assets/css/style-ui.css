@@ -2859,7 +2859,7 @@ table.odd-bg tbody tr:nth-child(odd) td {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 720px;
+  width: 724px;
 }
 
 .main-menu > li {
@@ -2867,7 +2867,10 @@ table.odd-bg tbody tr:nth-child(odd) td {
       -ms-flex: 1;
           flex: 1;
   height: 80px;
-  width: 150px;
+  width: 120px; 
+  min-width: 120px; 
+  /* text-align: center; */
+  /* 2023-09-26 */
 }
 
 .main-menu > li > a {
@@ -2905,7 +2908,7 @@ table.odd-bg tbody tr:nth-child(odd) td {
 
 .mega-menu {
   display: none;
-  width: 800px;
+  width: 798px;
   min-height: 170px;
   padding: 24px 20px 24px 60px;
   margin-left: -60px;
@@ -2927,6 +2930,8 @@ table.odd-bg tbody tr:nth-child(odd) td {
 }
 
 .mega-menu .sub-menu {
+  width: 120px;
+  min-width: 120px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2962,21 +2967,53 @@ table.odd-bg tbody tr:nth-child(odd) td {
   background-size: 6px 7px;
 }
 
+/* .main-menu > li:nth-of-type(1) {
+  width: 100px;
+}
+
+.mega-menu .sub-menu:nth-of-type(1) {
+  width: 100px;
+}
+
+.main-menu > li:nth-of-type(2) {
+  width: 100px;
+}
+
+.mega-menu .sub-menu:nth-of-type(2) {
+  width: 100px;
+} */
+
 .main-menu > li:nth-of-type(3) {
-  min-width: 160px;
+  min-width: 142px;
 }
 
 .mega-menu .sub-menu:nth-of-type(3) {
-  min-width: 160px;
+  min-width: 142px;
 }
 
 .main-menu > li:nth-of-type(4) {
+  min-width: 110px;
+}
+
+.mega-menu .sub-menu:nth-of-type(4) {
+  min-width: 110px;
+}
+
+.main-menu > li:nth-of-type(5) {
+  min-width: 124px;
+}
+
+.mega-menu .sub-menu:nth-of-type(5) {
+  min-width: 124px;
+}
+
+/* .main-menu > li:nth-of-type(4) {
   min-width: 130px;
 }
 
 .mega-menu .sub-menu:nth-of-type(4) {
   min-width: 130px;
-}
+} */
 
 /* sub top bg */
 .sub-top {
@@ -4272,8 +4309,6 @@ table.odd-bg tbody tr:nth-child(odd) td {
   text-align: left;
 }
 
-
-/* 2023-09-05:s */
 .graph-category {
   display: flex;
   margin-right: 10px;
@@ -4458,4 +4493,3 @@ table.odd-bg tbody tr:nth-child(odd) td {
   line-height: 38px;
 }
 
-/* 2023-09-05:e */
