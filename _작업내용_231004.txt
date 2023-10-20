@@ -1,0 +1,44 @@
+# 2023-10-04 16:00
+: 헤더 간격 수정
+
++ css 수정
+./assets/css/style-ui.css : /* 2023-10-04 */ 와 /* 2023-10-04:s */ 주석 표시
+
+---------------------------------------------
+
+# 2023-10-04
+: 헤더 간격 수정
+
++ html 수정
+_레이아웃_메뉴.html 
+
++ css 수정
+./assets/css/style-ui.css
+
+---------------------------------------------
+
+# 2023-09-05 17:00
+
++ html
+목차.html - [추가 23/09/05 17:00]
+
++ css 수정
+./assets/css/style-ui.css
+
+---------------------------------------------
+# 2023-09-05
+
++ html
+목차.html - [추가 23/09/05]
+
++ css 수정
+./assets/css/daterangepicker/daterangepicker.custom.css
+./assets/css/style-ui.css
+
++ js 수정
+./assets/js/style-ui.js
+
++ 이미지
+./assets/images/form/~
+./assets/images/icon/~
+

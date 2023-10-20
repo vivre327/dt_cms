@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="" />
+  <title></title>
+  <!-- lib : common -->
+  <script src="../assets/js/jquery/jquery-3.4.1.min.js"></script>
+  <!-- lib : daterangepicker -->
+  <script src="../assets/js/daterangepicker/moment.min.js"></script>
+  <script src="../assets/js/daterangepicker/daterangepicker.custom.js"></script>
+  <link rel="stylesheet" href="../assets/css/daterangepicker/daterangepicker.custom.css">
+  <script>
+    $(function () {
+      moment.locale('ko');
+      $('input[name="typeDate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        drops: "auto",
+        locale: {
+          format: 'YYYY-MM-DD',
+          monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+          daysOfWeek: ['일', '월', '화', '수', '목', '금', '토'],
+          cancelLabel: "취소",
+          applyLabel: "적용",
+        }
+      });
+    });
+  </script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/a6eb0217d4.js" crossorigin="anonymous"></script>
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/css/style-ui.css">
+  <script defer src="../assets/js/style-ui.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" data-include-path="_header.html"></header>
+    
+    <div class="container">
+      <div class="sub-top">
+        <div class="sub-title">
+          <h2>통계<small>Statics</small></h2>
+        </div>
+      </div>
+      <div class="contents dashboard">
+        <article>
+
+
+          <div class="tbl-top">
+            <div class="tbl-top-left">
+              <h3 class="bold">판매 현황</h3>
+            </div>
+          </div>
+          <div class="dashboard-status">
+            <div class="dashboard-box status-box highlight">
+              <div class="dashboard-title">
+                <h3>오늘</h3>
+              </div>
+              <div class="inner-container">
+                <div class="count-wrap">
+                  <dl>
+                    <dt>판매금액</dt>
+                    <dd><b class="count">1,230,000</b>원</dd>
+                  </dl>
+                  <dl>
+                    <dt>판매수량</dt>
+                    <dd><b class="count">12,345,678</b>개</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-box status-box">
+              <div class="dashboard-title">
+                <h3>지난 7일</h3>
+              </div>
+              <div class="inner-container">
+                <div class="count-wrap">
+                  <dl>
+                    <dt>판매금액</dt>
+                    <dd><b class="count">1,230,000</b>원</dd>
+                  </dl>
+                  <dl>
+                    <dt>판매수량</dt>
+                    <dd><b class="count">12,345,678</b>개</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-box status-box">
+              <div class="dashboard-title">
+                <h3>당월</h3>
+              </div>
+              <div class="inner-container">
+                <div class="count-wrap">
+                  <dl>
+                    <dt>판매금액</dt>
+                    <dd><b class="count">1,230,000</b>원</dd>
+                  </dl>
+                  <dl>
+                    <dt>판매수량</dt>
+                    <dd><b class="count">12,345,678</b>개</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tbl-top mr-t3">
+            <div class="tbl-top-left">
+              <h3 class="bold">상품/주문 현황</h3>
+            </div>
+          </div>
+          <div class="d-flex double">
+            <div class="tbl-type--list">
+              <div class="dashboard-box sales-status">
+                <div class="dashboard-title">
+                  <h3>상품</h3>
+                </div>
+                <div class="inner-container">
+                  <table class="">
+                    <colgroup>
+                      <col width="140px">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>판매중</th>
+                        <td><a href="" class="sales-count">93</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>판매완료</th>
+                        <td><a href="" class="sales-count">2</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>일시품절</th>
+                        <td><a href="" class="sales-count">5</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>판매중단</th>
+                        <td><a href="" class="sales-count">0</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="tbl-type--list">
+              <div class="dashboard-box sales-status">
+                <div class="dashboard-title">
+                  <h3>주문</h3>
+                </div>
+                <div class="inner-container">
+                  <table class="">
+                    <colgroup>
+                      <col width="140px">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>결제완료(승인대기)</th>
+                        <td><a href="" class="sales-count">93</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>배송대기</th>
+                        <td><a href="" class="sales-count">2</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>배송중</th>
+                        <td><a href="" class="sales-count">5</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                      <tr>
+                        <th>배송지연</th>
+                        <td><a href="" class="sales-count">0</a> <span class="sales-unit">건</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tbl-top mr-t3">
+            <div class="tbl-top-left items-center">
+              <h3 class="bold">인기상품 10종</h3>
+              <span class="label-date">최근14일 2023.09.27 ~ 2023.10.12</span>
+            </div>
+            <div class="tbl-top-right">
+              <div class="tabset">
+                <!-- Tab 1 -->
+                <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+                <label for="tab1">판매수량</label>
+                <!-- Tab 2 -->
+                <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+                <label for="tab2">판매금액</label>
+              </div>
+            </div>
+          </div>
+          <div class="tbl-type--list">
+            <div class="dashboard-box">
+              <div class="dashboard-title">
+                <h3>판매수량</h3>
+              </div>
+              <div class="inner-container">
+                <table class="tb-quantity">
+                  <colgroup>
+                    <col width="128px">
+                    <col width="*">
+                    <col width="242px">
+                    <col width="342px">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">랭킹</th>
+                      <th scope="col">상품명 (상품코드)</th>
+                      <th scope="col">판매수량(개)</th>
+                      <th scope="col">판매금액(원)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>TYPE01 맨투맨 (005712)</td>
+                      <td>127</td>
+                      <td>2,400,000</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>TYPE01 맨투맨 (005712)</td>
+                      <td>56</td>
+                      <td>3,200,000</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>TYPE01 맨투맨 (005712)</td>
+                      <td>43</td>
+                      <td>1,200,000</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>TYPE01 맨투맨 (005712)</td>
+                      <td>20</td>
+                      <td>279,000</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>TYPE01 맨투맨 (005712)</td>
+                      <td>6</td>
+                      <td>187,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="paging-box">
+                  <div class="paging-box-left">
+                  </div>
+                  <div class="paging-box-center">
+                    <div class="paging">
+                      <a href="#" class="active-page"><i class="ico-dot"></i></a>
+                      <a href="#"><i class="ico-dot"></i></a>
+                    </div>
+                  </div>
+                  <div class="paging-box-right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tbl-top mr-t3">
+            <div class="tbl-top-left items-center">
+              <h3 class="bold">상품 판매 추이</h3>
+              <span class="label-date">지난 7일 2023.10.04 ~ 2023.10.12</span>
+            </div>
+            <div class="tbl-top-right">
+
+            </div>
+          </div>
+          <div class="db-graph">
+            <!-- 그래프 영역 -->
+          </div>
+
+        </article>
+      </div>
+    </div>
+    <!--/container-->
+
+    <footer class="footer" data-include-path="_footer.html"></footer>
+  </div>
+  <!--/wrapper-->
+
+
+</body>
+</html>
